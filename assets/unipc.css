@@ -66,6 +66,12 @@ main{flex:1}
 .u-wrap{max-width:var(--maxw)}
 .u-wrap--doc{max-width:var(--maxw-doc)}
 .u-wrap--read{max-width:var(--maxw-read)}
+/* Left-align the narrow reading/diplomatic columns to the homepage's content
+   edge (the centered 1160 grid) instead of centering them, so every page shares
+   one consistent left margin. 50% - 580px = the 1160 grid's left edge; + 28px
+   gutter; clamped to 28px so it never sits flush or goes negative on narrow
+   viewports. */
+.u-wrap--doc,.u-wrap--read{margin-left:max(28px,calc(50% - 552px));margin-right:auto;padding-left:0}
 
 /* ---- Typography helpers ---- */
 .u-serif{font-family:var(--serif)}
@@ -242,5 +248,6 @@ main{flex:1}
   .unipc-nav .bar{gap:14px}
   .unipc-nav .links{gap:12px}
   .unipc-footer .cols{grid-template-columns:1fr}
-  .u-wrap,.u-wrap--doc,.u-wrap--read{padding-left:20px;padding-right:20px}
+  .u-wrap{padding-left:20px;padding-right:20px}
+  .u-wrap--doc,.u-wrap--read{margin-left:max(20px,calc(50% - 552px));padding-left:0;padding-right:20px}
 }
