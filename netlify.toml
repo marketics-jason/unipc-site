@@ -1,0 +1,18 @@
+# UNIPC — static site. No build step; publish the repository root.
+[build]
+  publish = "."
+
+# Security + privacy headers (no trackers; this site sets none itself).
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"
+    Permissions-Policy = "geolocation=(), camera=(), microphone=(), interest-cohort=()"
+
+# Long-cache the shared, versionable assets.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"

@@ -1,0 +1,3 @@
+# Draft site — not for indexing yet. Pages also carry noindex,nofollow.
+User-agent: *
+Disallow: /
