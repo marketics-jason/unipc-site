@@ -60,7 +60,10 @@ h1,h2,h3{text-wrap:balance}
 
 .u-shell{min-height:100vh;display:flex;flex-direction:column}
 main{flex:1}
-.u-wrap{max-width:var(--maxw);margin:0 auto;padding-left:28px;padding-right:28px}
+/* Width variants are self-sufficient: each supplies its own centering + gutter,
+   so `u-wrap--read`/`u-wrap--doc` work whether or not `u-wrap` is also present. */
+.u-wrap,.u-wrap--doc,.u-wrap--read{margin-left:auto;margin-right:auto;padding-left:28px;padding-right:28px}
+.u-wrap{max-width:var(--maxw)}
 .u-wrap--doc{max-width:var(--maxw-doc)}
 .u-wrap--read{max-width:var(--maxw-read)}
 
@@ -239,5 +242,5 @@ main{flex:1}
   .unipc-nav .bar{gap:14px}
   .unipc-nav .links{gap:12px}
   .unipc-footer .cols{grid-template-columns:1fr}
-  .u-wrap{padding-left:20px;padding-right:20px}
+  .u-wrap,.u-wrap--doc,.u-wrap--read{padding-left:20px;padding-right:20px}
 }
