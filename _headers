@@ -1,0 +1,10 @@
+# Security + caching headers. Honored by Cloudflare Pages AND Netlify, so these
+# survive the move from Netlify to Cloudflare. UNIPC sets no cookies/trackers.
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  Permissions-Policy: geolocation=(), camera=(), microphone=(), interest-cohort=()
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
