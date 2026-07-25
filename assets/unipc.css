@@ -1,8 +1,19 @@
+/* Self-hosted Noto — latin subset. Characters outside this range fall back to
+   system serif/sans per-glyph; other scripts arrive with the multilingual build. */
+@font-face{font-family:'Noto Sans';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/NotoSans-400-normal-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Noto Sans';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/NotoSans-500-normal-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Noto Sans';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/NotoSans-600-normal-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Noto Sans';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/NotoSans-700-normal-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Noto Serif';font-style:italic;font-weight:400;font-display:swap;src:url(fonts/NotoSerif-400-italic-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Noto Serif';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/NotoSerif-400-normal-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Noto Serif';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/NotoSerif-500-normal-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Noto Serif';font-style:normal;font-weight:600;font-display:swap;src:url(fonts/NotoSerif-600-normal-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+@font-face{font-family:'Noto Serif';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/NotoSerif-700-normal-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
 /* ==========================================================================
    UNIPC — Sky & Earth design system
    Static, low-bandwidth. One cached stylesheet for the whole site.
-   No web-font @import here: Noto Serif / Noto Sans are loaded per-page via
-   <link> with system fallbacks so first paint never blocks on font load.
+   Noto Serif / Noto Sans are self-hosted above via @font-face (latin subset,
+   font-display:swap) with system fallbacks so first paint never blocks.
    ========================================================================== */
 
 :root{
