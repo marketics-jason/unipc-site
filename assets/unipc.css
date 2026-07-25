@@ -56,7 +56,7 @@
 }
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:clip}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{
   margin:0;background:var(--cloud);color:var(--slate);
@@ -281,6 +281,17 @@ main{flex:1}
   .hero-2,.give-2,.close-2,.grid-2,[data-donate-grid],[data-close-grid]{grid-template-columns:1fr!important;gap:32px}
   .unipc-footer .cols{grid-template-columns:1fr 1fr;gap:28px}
   .section{padding:56px 0 60px}
+}
+/* Multi-column numbered/domain grids are set inline as repeat(N,1fr) on some
+   pages (SEEKS sequence, the 10-domain mandate grid, the diplomatic asks). Their
+   cells can't shrink below their text, so they overflow narrow screens. Collapse
+   them progressively. Attribute selectors + !important because the columns are
+   an inline style. */
+@media (max-width:680px){
+  [style*="repeat(5,1fr)"],[style*="repeat(4,1fr)"],[style*="repeat(3,1fr)"]{grid-template-columns:repeat(2,1fr)!important}
+}
+@media (max-width:460px){
+  [style*="repeat(5,1fr)"],[style*="repeat(4,1fr)"],[style*="repeat(3,1fr)"],[style*="repeat(2,1fr)"]{grid-template-columns:1fr!important}
 }
 @media (max-width:560px){
   .unipc-nav .bar{gap:14px}
