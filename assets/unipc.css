@@ -160,8 +160,10 @@ main{flex:1}
 .unipc-nav .links a:hover{color:var(--clay)}
 .unipc-nav .links a.is-active::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--clay)}
 .unipc-nav .sep{width:1px;height:15px;background:#D8D3C4}
-.unipc-nav .contact{font-weight:500;color:var(--cloud);background:var(--clay);padding:7px 14px;border-radius:5px}
-.unipc-nav .contact:hover{color:var(--cloud);background:#763d1b}
+/* Higher specificity than `.unipc-nav .links a` so the cream text wins (that
+   generic link rule was overriding it and leaving the button low-contrast). */
+.unipc-nav .links a.contact{font-weight:600;color:var(--cloud);background:var(--clay);padding:7px 14px;border-radius:5px}
+.unipc-nav .links a.contact:hover{color:var(--cloud);background:#763d1b}
 /* Mobile menu (CSS-only, no JS): a checkbox toggle. Desktop shows every link
    inline exactly as before (the toggle + hamburger are hidden); at <=760px the
    links collapse behind a hamburger that opens a full-width panel. Fully author-
