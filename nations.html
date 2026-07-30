@@ -1,208 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nations &amp; Peoples — UNIPC</title>
-<meta name="description" content="For Indigenous nations and peoples: what UNIPC is today, what it is still designing, and why membership costs you nothing that is yours.">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="UNIPC — United Nations Indigenous Peoples Council">
-<meta property="og:title" content="Nations &amp; Peoples — UNIPC">
-<meta property="og:description" content="For Indigenous nations and peoples: what UNIPC is today, what it is still designing, and why membership costs you nothing that is yours.">
-<meta property="og:url" content="https://unipc.info/nations.html">
-<meta property="og:image" content="https://unipc.info/assets/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="The UNIPC emblem and wordmark.">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Nations &amp; Peoples — UNIPC">
-<meta name="twitter:description" content="For Indigenous nations and peoples: what UNIPC is today, what it is still designing, and why membership costs you nothing that is yours.">
-<meta name="twitter:image" content="https://unipc.info/assets/og-image.png">
-<meta name="robots" content="noindex,nofollow">
-<meta name="theme-color" content="#F5F4EF">
-<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/unipc.css?v=3">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nations & Peoples — UNIPC</title>
+<style>
+:root{
+  --clay:#8A4B23; --ochre:#C87F3A; --sky:#7FA8C9; --jade:#4E8577; --slate:#43514F; --cloud:#F5F4EF;
+  --hair:#D6D2C6; --muted:#6B6157; --paper:#FFFEFB;
+  --jade-text:#3E6A5F; --ochre-on-dark:#E3BF9C; --allies-text:#26302F;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+section, header#home{scroll-margin-top:64px}
+body{background:var(--cloud);color:var(--slate);font-family:"Noto Serif",Georgia,serif;font-size:18px;line-height:1.65}
+::selection{background:var(--ochre);color:var(--paper)}
+.wrap{max-width:1020px;margin:0 auto;padding:0 26px}
+.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--jade-text);font-family:"Noto Sans",ui-monospace,Menlo,monospace;font-weight:600}
+h1,h2,h3{font-family:"Noto Serif",Georgia,serif;font-weight:400}
+h2{font-size:clamp(26px,3.6vw,38px);line-height:1.16;margin:12px 0 20px;color:var(--clay)}
+p{max-width:66ch;font-family:"Noto Sans",Georgia,sans-serif}
+.lede{font-size:20px}
+section{padding:76px 0}
+.rule{height:1px;background:var(--hair);border:0}
+nav{position:sticky;top:0;z-index:50;background:rgba(245,244,239,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--hair)}
+nav .wrap{display:flex;align-items:center;gap:22px;padding:14px 26px;overflow-x:auto;white-space:nowrap}
+nav a{font-family:"Noto Sans",sans-serif;font-size:13px;letter-spacing:.04em;color:var(--slate);text-decoration:none;opacity:.75}
+nav a:hover,nav a:focus-visible{opacity:1;color:var(--clay)}
+nav a.active{opacity:1;color:var(--clay);border-bottom:2px solid var(--clay);padding-bottom:2px}
+nav .brand{font-family:"Noto Serif",serif;color:var(--clay);font-size:16px;margin-right:8px;flex-shrink:0}
+
+/* hero */
+.hero{min-height:82svh;display:grid;place-items:center;text-align:center;padding:60px 26px 50px}
+.hero .org{font-family:"Noto Sans",ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-bottom:26px}
+.seal{width:min(220px,52vw);height:auto;margin:0 auto 32px;display:block}
+.hero-grid{display:grid;grid-template-columns:1fr 200px;gap:44px;align-items:center;text-align:left}
+.hero-grid .seal{margin:0}
+.hero-grid .org{margin-bottom:18px}
+.hero-grid h1{margin:0;max-width:26ch}
+.hero-grid .sub{margin:20px 0 0}
+@media (max-width:760px){.hero-grid{grid-template-columns:1fr;text-align:center}.hero-grid .seal{margin:0 auto 20px;order:-1}}
+.disclaimer-block{max-width:1020px;margin:0 auto;padding:22px 26px;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.disclaimer-block p.quote{font-family:"Noto Serif",serif;font-style:italic;color:var(--slate);font-size:15.5px;line-height:1.55;max-width:78ch;margin-top:8px}
+.hero h1{font-weight:300;font-size:clamp(32px,5.4vw,58px);line-height:1.1;color:#2E3A38;max-width:17ch;margin:0 auto;font-family:"Noto Serif",serif}
+.hero h1 em{font-style:italic;color:var(--clay)}
+.hero .sub{margin:22px auto 0;max-width:54ch;font-size:19px;color:var(--muted);font-family:"Noto Sans",sans-serif}
+.status-chip{display:inline-flex;align-items:center;gap:8px;margin-top:28px;font-family:"Noto Sans",ui-monospace,monospace;font-size:12px;letter-spacing:.08em;background:var(--paper);border:1px solid var(--hair);color:var(--slate);padding:9px 16px;border-radius:999px}
+.status-chip .dot{width:7px;height:7px;border-radius:50%;background:var(--ochre)}
+
+.tenses{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:36px}
+.tense{border-top:3px solid var(--clay);padding-top:16px}
+.tense.does{border-color:var(--jade)}
+.tense.seeks{border-color:var(--sky)}
+.tense h3{font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;color:var(--clay);font-family:"Noto Sans",monospace;font-weight:600}
+.tense.does h3{color:var(--jade-text)}
+.tense.seeks h3{color:#4d6f8f}
+.tense p{font-size:16px;color:var(--muted);font-family:"Noto Sans",sans-serif}
+
+/* four doors */
+.doors{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:44px}
+.door{background:var(--paper);border:1px solid var(--hair);border-radius:14px;padding:26px 22px;text-decoration:none;display:block;transition:border-color .2s ease,transform .2s ease}
+.door:hover,.door:focus-visible{border-color:var(--clay);transform:translateY(-2px)}
+.door .num{font-family:"Noto Sans",monospace;font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+.door h4{font-family:"Noto Serif",serif;font-weight:400;font-size:19px;color:#2E3A38;margin:10px 0 8px}
+.door p{font-size:14.5px;color:var(--muted);max-width:none;font-family:"Noto Sans",sans-serif}
+
+.band{background:var(--slate);color:#E9EDE9;padding:56px 0}
+.band .wrap p.test{font-size:clamp(20px,2.6vw,26px);color:var(--ochre-on-dark);max-width:38ch;line-height:1.35;margin-bottom:14px;font-family:"Noto Serif",serif}
+.band p{color:#C9D2CE;font-size:17px;max-width:72ch;font-family:"Noto Sans",sans-serif}
+
+.section-block{border-top:1px solid var(--hair)}
+.pagehead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.pagehead .idx{font-family:"Noto Sans",monospace;font-size:13px;color:var(--muted);letter-spacing:.1em}
+
+.callout{background:var(--paper);border:1px solid var(--hair);border-radius:12px;padding:22px 24px;margin:22px 0;font-family:"Noto Sans",sans-serif;font-size:15.5px;color:var(--slate)}
+.callout b{color:var(--clay)}
+.callout.jade{border-color:var(--jade);background:#F4F8F6}
+.callout.jade b{color:var(--jade-text)}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:24px}
+@media(max-width:720px){.grid2{grid-template-columns:1fr}}
+.domain-list{margin-top:16px;font-family:"Noto Sans",sans-serif;font-size:15px;color:var(--muted);line-height:2;list-style:none;columns:2;column-gap:28px}
+@media(max-width:720px){.domain-list{columns:1}}
+
+ul.plain{list-style:none;margin-top:16px}
+ul.plain li{padding:10px 0;border-top:1px solid var(--hair);font-family:"Noto Sans",sans-serif;font-size:15.5px}
+ul.plain li:first-child{border-top:none}
+ul.plain b{color:var(--clay)}
+
+.principle-list{margin-top:20px}
+.principle-list .p-item{display:flex;gap:14px;padding:12px 0;border-top:1px solid var(--hair)}
+.principle-list .p-item:first-child{border-top:none}
+.principle-list .p-item .mark{color:var(--jade);font-family:"Noto Sans",monospace;flex-shrink:0}
+.principle-list .p-item p{font-family:"Noto Sans",sans-serif;font-size:15px;color:var(--muted);max-width:none}
+
+.steps{margin-top:32px;display:grid;gap:0}
+.step{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--hair)}
+.step:first-child{border-top:none}
+.step .n{font-family:"Noto Serif",serif;font-size:28px;color:var(--clay);font-weight:300}
+.step h4{font-family:"Noto Serif",serif;font-weight:400;font-size:19px;color:#2E3A38;margin-bottom:6px}
+.step .tag{display:inline-block;font-family:"Noto Sans",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;background:#EFEAE0;color:var(--muted);padding:3px 9px;border-radius:999px;margin-left:8px;vertical-align:middle}
+.step .tag.now{background:var(--jade);color:#EAF2EE}
+.step p{font-family:"Noto Sans",sans-serif;font-size:15.5px;color:var(--muted)}
+
+.doorsmall{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:24px}
+.dsm{border-top:2px solid var(--clay);padding-top:14px}
+.dsm h4{font-family:"Noto Serif",serif;font-weight:400;font-size:16px;color:#2E3A38;margin-bottom:6px}
+.dsm p{font-size:14px;color:var(--muted);font-family:"Noto Sans",sans-serif}
+.dsm .vote{color:var(--jade);font-family:"Noto Sans",monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase}
+
+.cta{display:inline-block;margin-top:20px;font-family:"Noto Sans",sans-serif;font-size:14.5px;color:var(--paper);background:var(--clay);padding:12px 22px;border-radius:8px;text-decoration:none}
+.cta:hover,.cta:focus-visible{background:#743c1b}
+.cta.ghost{background:transparent;color:var(--clay);border:1px solid var(--clay)}
+.cta.ghost:hover{background:var(--clay);color:var(--paper)}
+
+table.contact{width:100%;margin-top:20px;border-collapse:collapse;font-family:"Noto Sans",sans-serif;font-size:15px}
+table.contact td{padding:12px 0;border-top:1px solid var(--hair);vertical-align:top}
+table.contact td:first-child{color:var(--muted);width:40%;padding-right:20px}
+@media(max-width:600px){
+  table.contact, table.contact tbody, table.contact tr, table.contact td{display:block;width:100%}
+  table.contact tr{border-top:1px solid var(--hair);padding:12px 0}
+  table.contact td{border-top:none;padding:0;width:100%}
+  table.contact td:first-child{padding-bottom:4px;font-weight:600}
+}
+
+footer{padding:70px 0 50px;text-align:center;border-top:1px solid var(--hair)}
+footer .fin{font-size:19px;color:var(--clay);font-style:italic;margin-bottom:12px;font-family:"Noto Serif",serif}
+footer p{margin:0 auto;font-size:13.5px;color:var(--muted);max-width:58ch;font-family:"Noto Sans",sans-serif}
+footer a{color:var(--jade-text)}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+@media(max-width:720px){section{padding:52px 0}}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--clay);color:var(--paper);padding:12px 20px;z-index:100;font-family:"Noto Sans",sans-serif;font-size:14px;border-radius:0 0 8px 0}
+.skip-link:focus{left:0}
+</style>
 </head>
 <body>
-<div class="u-shell">
+<a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- ================= NAV ================= -->
-  <header class="unipc-nav">
-    <div class="bar">
-      <a class="brand" href="index.html" aria-label="UNIPC home">
-        <svg width="32" height="32" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-          <circle cx="32" cy="32" r="30" stroke="#8A4B23" stroke-width="1.4"/>
-          <circle cx="32" cy="32" r="23.5" stroke="#C87F3A" stroke-width="0.75" opacity="0.55"/>
-          <line x1="12" y1="44" x2="52" y2="44" stroke="#8A4B23" stroke-width="1.4"/>
-          <circle cx="16" cy="36" r="1.7" fill="#8A4B23"/><circle cx="21.3" cy="32" r="1.7" fill="#8A4B23"/><circle cx="26.6" cy="29.6" r="1.7" fill="#8A4B23"/><circle cx="32" cy="28.8" r="2" fill="#8A4B23"/><circle cx="37.4" cy="29.6" r="1.7" fill="#8A4B23"/><circle cx="42.7" cy="32" r="1.7" fill="#8A4B23"/><circle cx="48" cy="36" r="1.7" fill="#8A4B23"/>
-        </svg>
-        <span class="wordmark"><b>UNIPC</b><span>United Nations Indigenous Peoples Council</span></span>
-      </a>
-      <input class="nav-toggle" type="checkbox" id="u-nav-toggle" aria-label="Open menu"><label class="nav-burger" for="u-nav-toggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></label>
-      <nav class="links" aria-label="Primary">
-        <a href="nations.html" class="is-active">Nations &amp; Peoples</a>
-        <a href="states.html">States &amp; Ministries</a>
-        <a href="organizations.html">Organizations</a>
-        <a href="allies.html">Allies &amp; Funders</a>
-        <a href="support.html">Support</a>
-        <a href="donate.html">Donate</a>
-        <span class="sep" aria-hidden="true"></span>
-        <a href="about.html">About</a>
-        <a href="achieved.html">What We Achieved</a>
-        <a href="recognition.html">Path to Recognition</a>
-        <a href="membership.html">Membership</a>
-        <a href="newsroom.html">Newsroom</a>
-        <a class="contact" href="contact.html">Contact</a>
-      </nav>
+<nav aria-label="Site sections">
+  <div class="wrap">
+    <span class="brand">UNIPC</span>
+    <a href="index.html">Home</a>
+    <a href="nations.html" class="active">Nations &amp; Peoples</a>
+    <a href="states.html">States &amp; Ministries</a>
+    <a href="organizations.html">Organizations &amp; Civil Society</a>
+    <a href="allies.html">Allies &amp; Funders</a>
+    <a href="support.html">Support</a>
+    <a href="donate.html">Donate</a>
+    <a href="about.html">About</a>
+    <a href="achieved.html">What We Achieved</a>
+    <a href="recognition.html">Path to Recognition</a>
+    <a href="membership.html">Membership</a>
+    <a href="newsroom.html">Newsroom</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<main id="main">
+<!-- ============ NATIONS & PEOPLES ============ -->
+<section class="section-block" id="nations">
+  <div class="wrap">
+    <p class="eyebrow reveal">01 · Nations &amp; Peoples</p>
+    <h2 class="reveal">You are not joining someone else's table.</h2>
+    <p class="lede reveal">UNIPC was founded by more than sixty individual co-founders, drawn from different Indigenous Nations across many regions where you call home, convened as one assembly — a founding of people, not yet of Nations bound by formal agreement, exactly as any assembly must begin. The ones who built it faced what you face: papers that don't name your nation, or recognize your indigeneity, banks that don't know your address, borders drawn through your homeland, and rooms where decisions about you are made without you.</p>
+
+    <p class="reveal" style="margin-top:10px;font-family:'Noto Sans',sans-serif;font-size:15.5px;color:var(--muted)">Within UNIPC, we are here to bring your voice forward — the voice of our 'United&nbsp;Nations' — to the forefront of international decision-makers.</p>
+
+    <div class="callout reveal"><b>Today.</b> UNIPC is where nations gather to deliberate. We hold assemblies. We are writing a treaty of friendship between Indigenous nations. We are designing a registry to hold Indigenous treaties safely — yours, your grandparents', and the ones your nation will make next — for activation once UNIPC is operating.</div>
+
+    <div class="callout jade reveal"><b>Tomorrow.</b> Identity and travel documents that carry your nation's name — issued only after the states involved agree to honor them. Financial services under real regulation. These are programs in design. We will tell you they exist only when they truly do. That is a promise.</div>
+
+    <h3 class="reveal" style="margin-top:36px;color:#2E3A38;font-size:20px">Membership costs you nothing that is yours</h3>
+    <div class="principle-list reveal">
+      <div class="p-item"><span class="mark">—</span><p><b style="color:var(--clay)">Your sovereignty stays yours.</b> Joining takes no position on your nation's status and waives no claim.</p></div>
+      <div class="p-item"><span class="mark">—</span><p><b style="color:var(--clay)">Your voice stays yours.</b> Where your nation and UNIPC are both in a room, your nation speaks first.</p></div>
+      <div class="p-item"><span class="mark">—</span><p><b style="color:var(--clay)">Your treaties stay yours.</b> The registry holds them; it never owns them.</p></div>
+      <div class="p-item"><span class="mark">—</span><p><b style="color:var(--clay)">Your say is real.</b> Indigenous nations, tribal governments, traditional authorities, and our Active Co-Founding Members in Good Standing hold the vote.</p></div>
     </div>
-    <div class="unipc-phase">
-      <div class="row">
-        <span class="chip">Preparatory phase</span>
-        <span class="txt">No funds held, no staff, no operations yet.</span>
-        <a href="status.html">Read our status &rarr;</a>
-      </div>
-    </div>
-  </header>
 
-  <main id="top">
+    <p class="reveal" style="margin-top:24px;font-family:'Noto Sans',sans-serif;font-size:15.5px;color:var(--muted)">And if your nation lives inside a state that denies you exist: we have a protected path. Quiet accession. Names shielded. We were built by people who know why that matters.</p>
 
-    <!-- ================= HERO ================= -->
-    <section class="u-wrap u-wrap--read" style="max-width:780px;scroll-margin-top:110px;padding-top:72px;padding-bottom:20px">
-      <div data-fade>
-        <div class="eyebrow" style="margin-bottom:18px">01 &middot; Nations &amp; Peoples</div>
-        <h1 class="u-h1">You are not joining someone else&rsquo;s table.</h1>
-        <p style="margin:0 0 18px;font-size:18.5px;line-height:1.62;color:var(--body-2)">UNIPC was founded by more than sixty individual co-founders, drawn from different Indigenous Nations across many regions where you call home, convened as one assembly &mdash; a founding of people, not yet of Nations bound by formal agreement, exactly as any assembly must begin.</p>
-        <p style="margin:0;font-size:18.5px;line-height:1.62;color:var(--body-2)">The ones who built it faced what you face: papers that don&rsquo;t name your nation, or recognize your indigeneity, banks that don&rsquo;t know your address, borders drawn through your homeland, and rooms where decisions about you are made without you.</p>
-      </div>
-    </section>
+    <a class="cta reveal" href="contact.html">Walk with us — updates for nations and peoples →</a>
+  </div>
+</section>
+</main>
 
-    <!-- ================= PULL PANEL ================= -->
-    <section class="u-wrap u-wrap--read" style="max-width:780px;padding-top:30px;padding-bottom:8px">
-      <div data-fade class="panel-dark" style="border-radius:12px;padding:30px 32px">
-        <p class="u-serif" style="margin:0;font-size:20px;line-height:1.45;color:var(--d-head-2)">Within UNIPC, we are here to bring your voice forward &mdash; the voice of our united Nations as decision makers &mdash; to the forefront of other international decision-makers.</p>
-      </div>
-    </section>
+<footer>
+  <div class="wrap">
+    <p class="fin">Precision made powerful.</p>
+    <p style="margin-bottom:10px;font-size:13px">
+      <a href="status.html" style="color:var(--jade-text);margin-right:14px">Status</a><a href="emblem.html" style="color:var(--jade-text);margin-right:14px">Emblem</a><a href="media.html" style="color:var(--jade-text)">Media &amp; Brand Use</a>
+    </p>
+    <p style="margin-bottom:14px">
+      <a href="https://www.instagram.com/unipc.info" style="color:var(--jade-text);margin-right:14px">Instagram</a><a href="https://substack.com/@unipc" style="color:var(--jade-text);margin-right:14px">Substack</a><a href="https://youtube.com/@unipc_info" style="color:var(--jade-text);margin-right:14px">YouTube</a><a href="https://www.tiktok.com/@unipc.info" style="color:var(--jade-text);margin-right:14px">TikTok</a><a href="https://x.com/UNIPC_INFO" style="color:var(--jade-text)">X</a>
+    </p>
+    <p>© United&nbsp;Nations&nbsp;Indigenous Peoples Council (UNIPC) · founded by more than sixty individual co-founders, drawn from Indigenous Nations and Peoples · unipc.info · Working draft for review · every claim on this site is checked against our <a href="status.html">current status</a> before publication.</p>
+  </div>
+</footer>
 
-    <!-- ================= WHAT THIS IS ================= -->
-    <section class="u-wrap u-wrap--read" style="max-width:780px;padding-top:42px;padding-bottom:8px">
-      <h2 class="u-serif" data-fade style="font-weight:500;font-size:26px;color:#3A4442;margin:0 0 24px">What this is, plainly.</h2>
-
-      <div data-fade style="background:var(--card);border:1px solid var(--hair);border-left:3px solid var(--jade);border-radius:10px;padding:26px 28px;margin-bottom:16px">
-        <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--jade-link);margin-bottom:12px">Today</div>
-        <p style="margin:0;font-size:17.5px;line-height:1.62;color:var(--body)">UNIPC is where nations gather to deliberate. We hold assemblies. We are writing a treaty of friendship between Indigenous nations. We are designing a registry to hold Indigenous treaties safely &mdash; yours, your grandparents&rsquo;, and the ones your nation will make next &mdash; for activation once UNIPC is operating.</p>
-      </div>
-
-      <div data-fade class="panel-sky" style="padding:26px 28px">
-        <div style="font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--sky-ink);margin-bottom:12px">Tomorrow</div>
-        <p style="margin:0;font-size:17.5px;line-height:1.62;color:#2E3A38">Identity and travel documents that carry your nation&rsquo;s name &mdash; issued only after the states involved agree to honor them. Financial services under real regulation. These are programs in design. <strong style="color:#1F2E2C">We will tell you they exist only when they truly do. That is a promise.</strong></p>
-      </div>
-    </section>
-
-    <!-- ================= MEMBERSHIP COSTS ================= -->
-    <section class="u-wrap u-wrap--read" style="max-width:780px;padding-top:42px;padding-bottom:8px">
-      <h2 class="u-serif" data-fade style="font-weight:500;font-size:26px;color:#3A4442;margin:0 0 24px">Membership costs you nothing that is yours.</h2>
-      <ul data-fade style="list-style:none;margin:0 0 28px;padding:0;display:flex;flex-direction:column;gap:16px">
-        <li style="display:flex;gap:14px;align-items:flex-start"><span style="flex:none;width:9px;height:9px;margin-top:8px;border-radius:2px;background:var(--amber)"></span><span style="font-size:17px;line-height:1.55"><strong style="color:#2F3A38;font-weight:600">Your sovereignty stays yours.</strong> Joining takes no position on your nation&rsquo;s status and waives no claim.</span></li>
-        <li style="display:flex;gap:14px;align-items:flex-start"><span style="flex:none;width:9px;height:9px;margin-top:8px;border-radius:2px;background:var(--amber)"></span><span style="font-size:17px;line-height:1.55"><strong style="color:#2F3A38;font-weight:600">Your voice stays yours.</strong> Where your nation and UNIPC are both in a room, your nation speaks first.</span></li>
-        <li style="display:flex;gap:14px;align-items:flex-start"><span style="flex:none;width:9px;height:9px;margin-top:8px;border-radius:2px;background:var(--amber)"></span><span style="font-size:17px;line-height:1.55"><strong style="color:#2F3A38;font-weight:600">Your treaties stay yours.</strong> The registry holds them; it never owns them.</span></li>
-        <li style="display:flex;gap:14px;align-items:flex-start"><span style="flex:none;width:9px;height:9px;margin-top:8px;border-radius:2px;background:var(--amber)"></span><span style="font-size:17px;line-height:1.55"><strong style="color:#2F3A38;font-weight:600">Your say is real.</strong> Indigenous nations, tribal governments, traditional authorities, and our Active Co-Founding Members in Good Standing hold the vote.</span></li>
-      </ul>
-      <div data-fade class="panel-dark" style="border-radius:10px;padding:28px 30px">
-        <p style="margin:0;font-size:17.5px;line-height:1.6;color:var(--d-head-2)">And if your nation lives inside a state that denies you exist: we have a protected path. Quiet accession. Names shielded. We were built by people who know why that matters.</p>
-      </div>
-    </section>
-
-    <!-- ================= WALK WITH US (FORM) ================= -->
-    <section class="u-wrap u-wrap--read" style="max-width:780px;padding-top:42px;padding-bottom:84px">
-      <div data-fade data-form-card style="background:var(--card);border:1px solid var(--hair);border-radius:12px;padding:34px 32px">
-        <div class="form-success" style="min-height:170px;justify-content:center">
-          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10.5" stroke="#4E8577" stroke-width="1.4"/><path d="M7.5 12.4l3 3 6-6.2" stroke="#4E8577" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <h3 class="u-serif" style="font-weight:500;font-size:23px;color:var(--clay);margin:0">Received.</h3>
-          <p style="margin:0;font-size:16.5px;line-height:1.55;color:var(--body-2)">We will reach back to you within 48 hours.</p>
-        </div>
-        <div class="form-live">
-          <h2 class="u-serif" style="font-weight:500;font-size:28px;color:var(--clay);margin:0 0 20px">Walk with us.</h2>
-          <form class="form" data-unipc-form data-subject="Nations &amp; Peoples — UNIPC" data-mailto="membership@unipc.info" method="post" action="mailto:membership@unipc.info" enctype="text/plain" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-            <label class="field" style="grid-column:1 / -1">Email
-              <input type="email" name="Email" data-label="Email" required placeholder="your@email">
-            </label>
-            <label class="field">Nation or people <span class="opt">(optional)</span>
-              <input type="text" name="Nation or people" data-label="Nation or people" placeholder="If it is safe to say">
-            </label>
-            <label class="field">Country <span class="opt">(optional)</span>
-              <input type="text" name="Country" data-label="Country" placeholder="Optional">
-            </label>
-            <button type="submit" class="btn btn-primary" style="grid-column:1 / -1;margin-top:4px">Receive updates for nations and peoples <span aria-hidden="true">&rarr;</span></button>
-          </form>
-          <p class="form-note">Optional means optional. Tell us only what is safe to tell.</p>
-        </div>
-      </div>
-      <div data-fade style="margin-top:22px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;border:1px dashed var(--clay-soft);border-radius:10px;padding:20px 24px">
-        <span style="font-size:16px;color:#3A4442">Ready for a conversation about membership?</span>
-        <a href="membership.html" style="font-size:15px;font-weight:500;color:var(--clay)">Begin here <span aria-hidden="true">&rarr;</span></a>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ================= FOOTER ================= -->
-  <footer class="unipc-footer">
-    <div class="inner">
-      <div class="disc">
-        <div class="disc-label">Disclaimer</div>
-        <p>&ldquo;UNIPC is entirely independent and not controlled or directed by any state, government, the United Nations Organization (whose membership consists solely of Member States), other international organizations, or any other entity.&rdquo;</p>
-      </div>
-      <div class="cols">
-        <div>
-          <div class="brandrow">
-            <svg width="30" height="30" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-              <circle cx="32" cy="32" r="30" stroke="#8A4B23" stroke-width="1.4"/>
-              <line x1="12" y1="44" x2="52" y2="44" stroke="#8A4B23" stroke-width="1.4"/>
-              <circle cx="16" cy="36" r="1.7" fill="#8A4B23"/><circle cx="21.3" cy="32" r="1.7" fill="#8A4B23"/><circle cx="26.6" cy="29.6" r="1.7" fill="#8A4B23"/><circle cx="32" cy="28.8" r="2" fill="#8A4B23"/><circle cx="37.4" cy="29.6" r="1.7" fill="#8A4B23"/><circle cx="42.7" cy="32" r="1.7" fill="#8A4B23"/><circle cx="48" cy="36" r="1.7" fill="#8A4B23"/>
-            </svg>
-            <b>UNIPC</b>
-          </div>
-          <p class="blurb">United Nations Indigenous Peoples Council — an organization of Indigenous nations and peoples. Built to load on any connection. No trackers, ever.</p>
-          <p class="site">unipc.info</p>
-        </div>
-        <div>
-          <div class="coltitle">Four paths</div>
-          <ul>
-            <li><a href="nations.html">Nations &amp; Peoples</a></li>
-            <li><a href="states.html">States &amp; Ministries</a></li>
-            <li><a href="organizations.html">Organizations &amp; Civil Society</a></li>
-            <li><a href="allies.html">Allies &amp; Funders</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="coltitle">The institution</div>
-          <ul>
-            <li><a href="about.html">About &amp; founding</a></li>
-            <li><a href="achieved.html">What we achieved</a></li>
-            <li><a href="recognition.html">Path to recognition</a></li>
-            <li><a href="membership.html">Membership</a></li>
-            <li><a href="status.html">Current status</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="coltitle">Engage</div>
-          <ul>
-            <li><a href="support.html">Support the Recognition</a></li>
-            <li><a href="donate.html">How to donate</a></li>
-            <li><a href="newsroom.html">Newsroom</a></li>
-            <li><a href="contact.html">Contact &amp; briefings</a></li>
-            <li><a href="emblem.html">The emblem</a></li>
-            <li><a href="media.html">Media &amp; brand use</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="bottom">
-        <div class="legal">© UNIPC · An organization of Indigenous nations and peoples · unipc.info · every claim on this site is checked against our current status before publication.</div>
-        <div class="signoff">Precision made powerful.</div>
-      </div>
-    </div>
-  </footer>
-
-</div>
-<script src="assets/unipc.js?v=3" defer></script>
+<script>
+(function(){
+  var io = new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.1});
+  document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
+})();
+(function(){
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll("nav a[href^='#']"));
+  var sections = navLinks.map(function(a){ return document.querySelector(a.getAttribute("href")); }).filter(Boolean);
+  function setActive(id){
+    navLinks.forEach(function(a){
+      a.classList.toggle("active", a.getAttribute("href") === "#" + id);
+    });
+  }
+  var spy = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){ setActive(entry.target.id); }
+    });
+  }, { rootMargin: "-72px 0px -70% 0px", threshold: 0 });
+  sections.forEach(function(s){ spy.observe(s); });
+})();
+</script>
 </body>
 </html>

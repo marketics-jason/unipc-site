@@ -1,262 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Newsroom — UNIPC</title>
-<meta name="description" content="The organization's own record, plus a roundup of Indigenous news gathered from independent outlets — each item attributed to its source.">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="UNIPC — United Nations Indigenous Peoples Council">
-<meta property="og:title" content="Newsroom — UNIPC">
-<meta property="og:description" content="The organization's own record, plus a roundup of Indigenous news gathered from independent outlets — each item attributed to its source.">
-<meta property="og:url" content="https://unipc.info/newsroom.html">
-<meta property="og:image" content="https://unipc.info/assets/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="The UNIPC emblem and wordmark.">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Newsroom — UNIPC">
-<meta name="twitter:description" content="The organization's own record, plus a roundup of Indigenous news gathered from independent outlets — each item attributed to its source.">
-<meta name="twitter:image" content="https://unipc.info/assets/og-image.png">
-<meta name="robots" content="noindex,nofollow">
-<meta name="theme-color" content="#F5F4EF">
-<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/unipc.css?v=3">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Newsroom & Statements — UNIPC</title>
+<style>
+:root{
+  --clay:#8A4B23; --ochre:#C87F3A; --sky:#7FA8C9; --jade:#4E8577; --slate:#43514F; --cloud:#F5F4EF;
+  --hair:#D6D2C6; --muted:#6B6157; --paper:#FFFEFB;
+  --jade-text:#3E6A5F; --ochre-on-dark:#E3BF9C; --allies-text:#26302F;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+section, header#home{scroll-margin-top:64px}
+body{background:var(--cloud);color:var(--slate);font-family:"Noto Serif",Georgia,serif;font-size:18px;line-height:1.65}
+::selection{background:var(--ochre);color:var(--paper)}
+.wrap{max-width:1020px;margin:0 auto;padding:0 26px}
+.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--jade-text);font-family:"Noto Sans",ui-monospace,Menlo,monospace;font-weight:600}
+h1,h2,h3{font-family:"Noto Serif",Georgia,serif;font-weight:400}
+h2{font-size:clamp(26px,3.6vw,38px);line-height:1.16;margin:12px 0 20px;color:var(--clay)}
+p{max-width:66ch;font-family:"Noto Sans",Georgia,sans-serif}
+.lede{font-size:20px}
+section{padding:76px 0}
+.rule{height:1px;background:var(--hair);border:0}
+nav{position:sticky;top:0;z-index:50;background:rgba(245,244,239,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--hair)}
+nav .wrap{display:flex;align-items:center;gap:22px;padding:14px 26px;overflow-x:auto;white-space:nowrap}
+nav a{font-family:"Noto Sans",sans-serif;font-size:13px;letter-spacing:.04em;color:var(--slate);text-decoration:none;opacity:.75}
+nav a:hover,nav a:focus-visible{opacity:1;color:var(--clay)}
+nav a.active{opacity:1;color:var(--clay);border-bottom:2px solid var(--clay);padding-bottom:2px}
+nav .brand{font-family:"Noto Serif",serif;color:var(--clay);font-size:16px;margin-right:8px;flex-shrink:0}
+
+/* hero */
+.hero{min-height:82svh;display:grid;place-items:center;text-align:center;padding:60px 26px 50px}
+.hero .org{font-family:"Noto Sans",ui-monospace,Menlo,monospace;font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-bottom:26px}
+.seal{width:min(220px,52vw);height:auto;margin:0 auto 32px;display:block}
+.hero-grid{display:grid;grid-template-columns:1fr 200px;gap:44px;align-items:center;text-align:left}
+.hero-grid .seal{margin:0}
+.hero-grid .org{margin-bottom:18px}
+.hero-grid h1{margin:0;max-width:26ch}
+.hero-grid .sub{margin:20px 0 0}
+@media (max-width:760px){.hero-grid{grid-template-columns:1fr;text-align:center}.hero-grid .seal{margin:0 auto 20px;order:-1}}
+.disclaimer-block{max-width:1020px;margin:0 auto;padding:22px 26px;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.disclaimer-block p.quote{font-family:"Noto Serif",serif;font-style:italic;color:var(--slate);font-size:15.5px;line-height:1.55;max-width:78ch;margin-top:8px}
+.hero h1{font-weight:300;font-size:clamp(32px,5.4vw,58px);line-height:1.1;color:#2E3A38;max-width:17ch;margin:0 auto;font-family:"Noto Serif",serif}
+.hero h1 em{font-style:italic;color:var(--clay)}
+.hero .sub{margin:22px auto 0;max-width:54ch;font-size:19px;color:var(--muted);font-family:"Noto Sans",sans-serif}
+.status-chip{display:inline-flex;align-items:center;gap:8px;margin-top:28px;font-family:"Noto Sans",ui-monospace,monospace;font-size:12px;letter-spacing:.08em;background:var(--paper);border:1px solid var(--hair);color:var(--slate);padding:9px 16px;border-radius:999px}
+.status-chip .dot{width:7px;height:7px;border-radius:50%;background:var(--ochre)}
+
+.tenses{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:36px}
+.tense{border-top:3px solid var(--clay);padding-top:16px}
+.tense.does{border-color:var(--jade)}
+.tense.seeks{border-color:var(--sky)}
+.tense h3{font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;color:var(--clay);font-family:"Noto Sans",monospace;font-weight:600}
+.tense.does h3{color:var(--jade-text)}
+.tense.seeks h3{color:#4d6f8f}
+.tense p{font-size:16px;color:var(--muted);font-family:"Noto Sans",sans-serif}
+
+/* four doors */
+.doors{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:44px}
+.door{background:var(--paper);border:1px solid var(--hair);border-radius:14px;padding:26px 22px;text-decoration:none;display:block;transition:border-color .2s ease,transform .2s ease}
+.door:hover,.door:focus-visible{border-color:var(--clay);transform:translateY(-2px)}
+.door .num{font-family:"Noto Sans",monospace;font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+.door h4{font-family:"Noto Serif",serif;font-weight:400;font-size:19px;color:#2E3A38;margin:10px 0 8px}
+.door p{font-size:14.5px;color:var(--muted);max-width:none;font-family:"Noto Sans",sans-serif}
+
+.band{background:var(--slate);color:#E9EDE9;padding:56px 0}
+.band .wrap p.test{font-size:clamp(20px,2.6vw,26px);color:var(--ochre-on-dark);max-width:38ch;line-height:1.35;margin-bottom:14px;font-family:"Noto Serif",serif}
+.band p{color:#C9D2CE;font-size:17px;max-width:72ch;font-family:"Noto Sans",sans-serif}
+
+.section-block{border-top:1px solid var(--hair)}
+.pagehead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.pagehead .idx{font-family:"Noto Sans",monospace;font-size:13px;color:var(--muted);letter-spacing:.1em}
+
+.callout{background:var(--paper);border:1px solid var(--hair);border-radius:12px;padding:22px 24px;margin:22px 0;font-family:"Noto Sans",sans-serif;font-size:15.5px;color:var(--slate)}
+.callout b{color:var(--clay)}
+.callout.jade{border-color:var(--jade);background:#F4F8F6}
+.callout.jade b{color:var(--jade-text)}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:24px}
+@media(max-width:720px){.grid2{grid-template-columns:1fr}}
+.domain-list{margin-top:16px;font-family:"Noto Sans",sans-serif;font-size:15px;color:var(--muted);line-height:2;list-style:none;columns:2;column-gap:28px}
+@media(max-width:720px){.domain-list{columns:1}}
+
+ul.plain{list-style:none;margin-top:16px}
+ul.plain li{padding:10px 0;border-top:1px solid var(--hair);font-family:"Noto Sans",sans-serif;font-size:15.5px}
+ul.plain li:first-child{border-top:none}
+ul.plain b{color:var(--clay)}
+
+.principle-list{margin-top:20px}
+.principle-list .p-item{display:flex;gap:14px;padding:12px 0;border-top:1px solid var(--hair)}
+.principle-list .p-item:first-child{border-top:none}
+.principle-list .p-item .mark{color:var(--jade);font-family:"Noto Sans",monospace;flex-shrink:0}
+.principle-list .p-item p{font-family:"Noto Sans",sans-serif;font-size:15px;color:var(--muted);max-width:none}
+
+.steps{margin-top:32px;display:grid;gap:0}
+.step{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--hair)}
+.step:first-child{border-top:none}
+.step .n{font-family:"Noto Serif",serif;font-size:28px;color:var(--clay);font-weight:300}
+.step h4{font-family:"Noto Serif",serif;font-weight:400;font-size:19px;color:#2E3A38;margin-bottom:6px}
+.step .tag{display:inline-block;font-family:"Noto Sans",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;background:#EFEAE0;color:var(--muted);padding:3px 9px;border-radius:999px;margin-left:8px;vertical-align:middle}
+.step .tag.now{background:var(--jade);color:#EAF2EE}
+.step p{font-family:"Noto Sans",sans-serif;font-size:15.5px;color:var(--muted)}
+
+.doorsmall{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:24px}
+.dsm{border-top:2px solid var(--clay);padding-top:14px}
+.dsm h4{font-family:"Noto Serif",serif;font-weight:400;font-size:16px;color:#2E3A38;margin-bottom:6px}
+.dsm p{font-size:14px;color:var(--muted);font-family:"Noto Sans",sans-serif}
+.dsm .vote{color:var(--jade);font-family:"Noto Sans",monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase}
+
+.cta{display:inline-block;margin-top:20px;font-family:"Noto Sans",sans-serif;font-size:14.5px;color:var(--paper);background:var(--clay);padding:12px 22px;border-radius:8px;text-decoration:none}
+.cta:hover,.cta:focus-visible{background:#743c1b}
+.cta.ghost{background:transparent;color:var(--clay);border:1px solid var(--clay)}
+.cta.ghost:hover{background:var(--clay);color:var(--paper)}
+
+table.contact{width:100%;margin-top:20px;border-collapse:collapse;font-family:"Noto Sans",sans-serif;font-size:15px}
+table.contact td{padding:12px 0;border-top:1px solid var(--hair);vertical-align:top}
+table.contact td:first-child{color:var(--muted);width:40%;padding-right:20px}
+@media(max-width:600px){
+  table.contact, table.contact tbody, table.contact tr, table.contact td{display:block;width:100%}
+  table.contact tr{border-top:1px solid var(--hair);padding:12px 0}
+  table.contact td{border-top:none;padding:0;width:100%}
+  table.contact td:first-child{padding-bottom:4px;font-weight:600}
+}
+
+footer{padding:70px 0 50px;text-align:center;border-top:1px solid var(--hair)}
+footer .fin{font-size:19px;color:var(--clay);font-style:italic;margin-bottom:12px;font-family:"Noto Serif",serif}
+footer p{margin:0 auto;font-size:13.5px;color:var(--muted);max-width:58ch;font-family:"Noto Sans",sans-serif}
+footer a{color:var(--jade-text)}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+@media(max-width:720px){section{padding:52px 0}}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--clay);color:var(--paper);padding:12px 20px;z-index:100;font-family:"Noto Sans",sans-serif;font-size:14px;border-radius:0 0 8px 0}
+.skip-link:focus{left:0}
+</style>
 </head>
 <body>
-<div class="u-shell">
+<a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- ================= NAV ================= -->
-  <header class="unipc-nav">
-    <div class="bar">
-      <a class="brand" href="index.html" aria-label="UNIPC home">
-        <svg width="32" height="32" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-          <circle cx="32" cy="32" r="30" stroke="#8A4B23" stroke-width="1.4"/>
-          <circle cx="32" cy="32" r="23.5" stroke="#C87F3A" stroke-width="0.75" opacity="0.55"/>
-          <line x1="12" y1="44" x2="52" y2="44" stroke="#8A4B23" stroke-width="1.4"/>
-          <circle cx="16" cy="36" r="1.7" fill="#8A4B23"/><circle cx="21.3" cy="32" r="1.7" fill="#8A4B23"/><circle cx="26.6" cy="29.6" r="1.7" fill="#8A4B23"/><circle cx="32" cy="28.8" r="2" fill="#8A4B23"/><circle cx="37.4" cy="29.6" r="1.7" fill="#8A4B23"/><circle cx="42.7" cy="32" r="1.7" fill="#8A4B23"/><circle cx="48" cy="36" r="1.7" fill="#8A4B23"/>
-        </svg>
-        <span class="wordmark"><b>UNIPC</b><span>United Nations Indigenous Peoples Council</span></span>
-      </a>
-      <input class="nav-toggle" type="checkbox" id="u-nav-toggle" aria-label="Open menu"><label class="nav-burger" for="u-nav-toggle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></label>
-      <nav class="links" aria-label="Primary">
-        <a href="nations.html">Nations &amp; Peoples</a>
-        <a href="states.html">States &amp; Ministries</a>
-        <a href="organizations.html">Organizations</a>
-        <a href="allies.html">Allies &amp; Funders</a>
-        <a href="support.html">Support</a>
-        <a href="donate.html">Donate</a>
-        <span class="sep" aria-hidden="true"></span>
-        <a href="about.html">About</a>
-        <a href="achieved.html">What We Achieved</a>
-        <a href="recognition.html">Path to Recognition</a>
-        <a href="membership.html">Membership</a>
-        <a class="is-active" href="newsroom.html">Newsroom</a>
-        <a class="contact" href="contact.html">Contact</a>
-      </nav>
+<nav aria-label="Site sections">
+  <div class="wrap">
+    <span class="brand">UNIPC</span>
+    <a href="index.html">Home</a>
+    <a href="nations.html">Nations &amp; Peoples</a>
+    <a href="states.html">States &amp; Ministries</a>
+    <a href="organizations.html">Organizations &amp; Civil Society</a>
+    <a href="allies.html">Allies &amp; Funders</a>
+    <a href="support.html">Support</a>
+    <a href="donate.html">Donate</a>
+    <a href="about.html">About</a>
+    <a href="achieved.html">What We Achieved</a>
+    <a href="recognition.html">Path to Recognition</a>
+    <a href="membership.html">Membership</a>
+    <a href="newsroom.html" class="active">Newsroom</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<main id="main">
+<!-- ============ NEWSROOM ============ -->
+<section class="section-block" id="news">
+  <div class="wrap">
+    <p class="eyebrow reveal">10 · Newsroom &amp; Statements</p>
+    <h2 class="reveal">In our own words, on the record.</h2>
+    <p class="reveal" style="font-size:15.5px;color:var(--muted)">Statements, resolutions, and communiqués of the organization — dated, archived, and standing. Published entries appear in this register, each dated, numbered, and preserved. We publish when there is something true to say. The record begins here.</p>
+
+    <h3 class="reveal" style="margin-top:32px;color:#2E3A38;font-size:18px">Indigenous news, in brief</h3>
+    <p class="reveal" style="font-size:14px;color:var(--muted);font-style:italic;margin-bottom:14px">Curated from outside sources — not UNIPC statements. Included so our Members can follow what's moving globally in one place.</p>
+    <div class="principle-list reveal">
+      <div class="p-item"><span class="mark">—</span><p style="font-size:14.5px;color:var(--muted)"><b style="color:var(--clay)">Geneva, July 2026.</b> The UN Expert Mechanism on the Rights of Indigenous Peoples held its 19th session, taking up Indigenous rights in conflict and post-conflict settings alongside a new panel on artificial intelligence and Indigenous rights. <a href="https://www.ohchr.org/en/press-releases/2026/07/indigenous-peoples-rights-conflict-situations-and-artificial-intelligence" style="color:var(--jade-text)">OHCHR →</a></p></div>
+      <div class="p-item"><span class="mark">—</span><p style="font-size:14.5px;color:var(--muted)"><b style="color:var(--clay)">Geneva, July 2026.</b> Indigenous delegates and governments meeting at an annual Geneva forum adopted a twelve-point set of recommendations urging the UN Human Rights Council to strengthen protections for Indigenous communities worldwide. <a href="https://www.wbur.org" style="color:var(--jade-text)">WBUR / Here &amp; Now →</a></p></div>
+      <div class="p-item"><span class="mark">—</span><p style="font-size:14.5px;color:var(--muted)"><b style="color:var(--clay)">Mato Grosso, Brazil, 2026.</b> A federal court ordered formal recognition of Kajkwakratxi-Tapayuna ancestral land and a public apology, citing decades of government inaction following historic violence against the people. <a href="https://news.mongabay.com/short-article/2026/07/brazil-court-orders-recognition-of-indigenous-land-and-apology-for-historic-atrocities/" style="color:var(--jade-text)">Mongabay →</a></p></div>
     </div>
-    <div class="unipc-phase">
-      <div class="row">
-        <span class="chip">Preparatory phase</span>
-        <span class="txt">No funds held, no staff, no operations yet.</span>
-        <a href="status.html">Read our status &rarr;</a>
-      </div>
+
+    <div class="callout reveal" style="margin-top:28px;font-size:14px">
+      <h4 style="margin:0 0 10px;color:#2E3A38;font-size:15px">About this roundup</h4>
+      <p style="color:var(--muted);margin-bottom:10px">The news items summarized above are drawn from independent, third-party news outlets, research institutions, and publications, as cited beside each item. Their inclusion here is for informational and awareness purposes only.</p>
+      <ul style="color:var(--muted);margin:0 0 0 18px;line-height:1.7">
+        <li><b style="color:var(--clay)">No endorsement.</b> Reference to any company, organization, government body, individual, product, or initiative named in this roundup does not constitute an endorsement, partnership, sponsorship, or affiliation with United&nbsp;Nations&nbsp;Indigenous Peoples Council, nor does it imply that United&nbsp;Nations&nbsp;Indigenous Peoples Council has verified, audited, or vouches for the claims, practices, or conduct of any entity mentioned.</li>
+        <li><b style="color:var(--clay)">No editorial ownership of source content.</b> All facts, statistics, and direct quotations are attributed to their original publications. United&nbsp;Nations&nbsp;Indigenous Peoples Council did not conduct independent investigation into the underlying stories beyond standard editorial review and is not responsible for the accuracy of third-party reporting.</li>
+        <li><b style="color:var(--clay)">Views are the source's own.</b> Any opinions, statements, or quotations attributed to individuals or organizations in the cited articles reflect those parties' views alone and not the views of United&nbsp;Nations&nbsp;Indigenous Peoples Council.</li>
+        <li><b style="color:var(--clay)">Subject to change.</b> Facts and circumstances in ongoing or developing stories (e.g., active disputes, investigations, or emergency response situations) may change after publication. Readers should consult the original sources for the most current information.</li>
+        <li><b style="color:var(--clay)">External links.</b> Links to third-party websites are provided for reference only. United&nbsp;Nations&nbsp;Indigenous Peoples Council does not control and is not responsible for the content, accuracy, or availability of external sites.</li>
+      </ul>
     </div>
-  </header>
+  </div>
+</section>
+</main>
 
-  <main id="top">
+<footer>
+  <div class="wrap">
+    <p class="fin">Precision made powerful.</p>
+    <p style="margin-bottom:10px;font-size:13px">
+      <a href="status.html" style="color:var(--jade-text);margin-right:14px">Status</a><a href="emblem.html" style="color:var(--jade-text);margin-right:14px">Emblem</a><a href="media.html" style="color:var(--jade-text)">Media &amp; Brand Use</a>
+    </p>
+    <p style="margin-bottom:14px">
+      <a href="https://www.instagram.com/unipc.info" style="color:var(--jade-text);margin-right:14px">Instagram</a><a href="https://substack.com/@unipc" style="color:var(--jade-text);margin-right:14px">Substack</a><a href="https://youtube.com/@unipc_info" style="color:var(--jade-text);margin-right:14px">YouTube</a><a href="https://www.tiktok.com/@unipc.info" style="color:var(--jade-text);margin-right:14px">TikTok</a><a href="https://x.com/UNIPC_INFO" style="color:var(--jade-text)">X</a>
+    </p>
+    <p>© United&nbsp;Nations&nbsp;Indigenous Peoples Council (UNIPC) · founded by more than sixty individual co-founders, drawn from Indigenous Nations and Peoples · unipc.info · Working draft for review · every claim on this site is checked against our <a href="status.html">current status</a> before publication.</p>
+  </div>
+</footer>
 
-    <!-- ================= HERO ================= -->
-    <section style="border-bottom:1px solid var(--hair);scroll-margin-top:110px">
-      <div class="u-wrap--read" style="max-width:860px;padding-top:72px;padding-bottom:50px">
-        <div class="eyebrow" style="margin-bottom:18px">10 &middot; Newsroom &amp; statements</div>
-        <h1 class="u-h1" style="margin:0 0 22px">In our own words, on the record.</h1>
-        <p class="u-lead" style="margin:0;max-width:66ch">Statements, resolutions, and communiqu&eacute;s of the organization &mdash; dated, archived, and standing.</p>
-      </div>
-    </section>
-
-    <!-- ================= UNIPC OWN STATEMENTS REGISTER ================= -->
-    <section style="scroll-margin-top:110px">
-      <div class="u-wrap--read" style="max-width:860px;padding-top:50px;padding-bottom:24px">
-        <div class="eyebrow" style="margin-bottom:16px">The organization&rsquo;s own record</div>
-        <div style="border:1px solid var(--hair);border-radius:12px;overflow:hidden">
-          <table class="register-table">
-            <thead>
-              <tr>
-                <th style="width:150px">Date</th>
-                <th>Instrument</th>
-                <th>Reference</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td colspan="3" style="padding:60px 26px;text-align:center;background:var(--warm);border-bottom:none">
-                  <svg width="40" height="40" viewBox="0 0 64 64" fill="none" style="margin-bottom:16px" aria-hidden="true">
-                    <circle cx="32" cy="32" r="30" stroke="#D8C3AE" stroke-width="1.4"/>
-                    <line x1="12" y1="44" x2="52" y2="44" stroke="#D8C3AE" stroke-width="1.4"/>
-                    <circle cx="16" cy="36" r="1.7" fill="#D8C3AE"/><circle cx="21.3" cy="32" r="1.7" fill="#D8C3AE"/><circle cx="26.6" cy="29.6" r="1.7" fill="#D8C3AE"/><circle cx="32" cy="28.8" r="2" fill="#D8C3AE"/><circle cx="37.4" cy="29.6" r="1.7" fill="#D8C3AE"/><circle cx="42.7" cy="32" r="1.7" fill="#D8C3AE"/><circle cx="48" cy="36" r="1.7" fill="#D8C3AE"/>
-                  </svg>
-                  <p class="u-serif" style="margin:0 0 6px;font-size:20px;color:#3A4442">The record begins here.</p>
-                  <p style="margin:0 auto;font-size:15px;line-height:1.55;color:var(--muted);max-width:52ch">Published entries appear in this register, each dated, numbered, and preserved. We publish when there is something true to say.</p>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= INDIGENOUS NEWS ROUNDUP (third-party) ================= -->
-    <section style="border-top:1px solid var(--hair);background:var(--warm);scroll-margin-top:110px">
-      <div class="u-wrap--read" style="max-width:860px;padding-top:64px;padding-bottom:8px">
-        <div class="eyebrow" style="margin-bottom:12px">Indigenous news &middot; in brief</div>
-        <h2 class="u-h2" style="margin-bottom:16px">From the wider world.</h2>
-        <p class="u-lead" style="margin:0;max-width:66ch">A roundup of Indigenous news gathered from independent outlets &mdash; shared for awareness, not as UNIPC&rsquo;s own statements. Every item is attributed to its original source; please read the note at the foot of this page.</p>
-      </div>
-      <div class="u-wrap--read" style="max-width:860px;padding-top:14px;padding-bottom:72px">
-
-        <article class="news-item">
-          <div class="news-meta"><span class="place">South Africa</span> &middot; <span>July 2026</span></div>
-          <h3 class="news-title">South Africa Sends Its Indigenous Rooibos Plant to the International Space Station</h3>
-          <p>Seeds from rooibos &mdash; a plant indigenous to South Africa&rsquo;s Cederberg region and used for generations by Khoisan communities &mdash; are being sent to the International Space Station this October in a mission organized with MaxIQ Space. It&rsquo;s the first such experiment involving an African species. The seeds will spend at least six weeks in orbit before returning to Earth around December or January, when students will compare their growth against a control group as part of a STEM education program.</p>
-          <p>Rooibos director Dawie de Villiers called the seeds &ldquo;the first indigenous South African species&hellip; to go to space.&rdquo; Beyond the novelty, the mission puts a spotlight on a plant that has anchored Khoisan cultural and medicinal practice for centuries and is now a global export, sold in more than 50 countries.</p>
-          <p>The plant&rsquo;s commercial success has not always reached the Indigenous communities connected to its origins: researchers estimate that less than 7% of rooibos-growing land is currently controlled by Indigenous farmers, despite a 2019 industry benefit-sharing agreement.</p>
-          <p class="news-src"><b>Sources</b> &nbsp;<a href="https://phys.org/news/2026-07-south-africa-rooibos-space.html" target="_blank" rel="noopener">AFP / phys.org</a> &middot; <a href="https://www.farmersweekly.co.za/agri-news/south-africa/rooibos-seeds-to-make-historic-journey-to-international-space-station/" target="_blank" rel="noopener">Farmers Weekly</a> &middot; The Conversation (May 2026) &middot; NPR Goats and Soda</p>
-        </article>
-
-        <article class="news-item">
-          <div class="news-meta"><span class="place">Namibia</span> &middot; <span>July 2026</span></div>
-          <h3 class="news-title">Namibian Firm&rsquo;s $50M Fuel Station Deal Signals Growing Indigenous Ownership in African Energy</h3>
-          <p>Nasan Energies, a Namibian company founded by 33-year-old entrepreneur Miguel Hamutenya, has completed the acquisition of 52 Engen- and Shell-branded fuel stations across Namibia in a deal valued at roughly US$50 million. The purchase &mdash; beating out more than 50 other bidders &mdash; makes Nasan Namibia&rsquo;s third-largest oil marketing company and one of Southern Africa&rsquo;s fastest-growing fuel retailers. All of the company&rsquo;s shareholders are under 33.</p>
-          <p>&ldquo;This is about proving that indigenous African companies have the expertise, capital and vision to own and grow strategic national assets,&rdquo; Hamutenya said in a statement announcing the deal.</p>
-          <p class="news-src"><b>Sources</b> &nbsp;<a href="https://iol.co.za/business-report/companies/2026-07-13-nasan-energies-acquires-52-retail-service-stations-in-namibia-for-over-r800-million/" target="_blank" rel="noopener">IOL Business Report</a> &middot; <a href="https://punchng.com/namibian-firm-buys-52-shell-engen-filling-stations/" target="_blank" rel="noopener">Punch</a> &middot; African Media Agency (July 13, 2026)</p>
-        </article>
-
-        <article class="news-item">
-          <div class="news-meta"><span class="place">Malawi &middot; Africa</span> &middot; <span>June 2026</span></div>
-          <h3 class="news-title">Scientists and Communities Turn to Indigenous Trees to Address Africa&rsquo;s Food Crisis</h3>
-          <p>Two recent reports converge on a single point: restoring Africa&rsquo;s native, food-bearing trees &mdash; not just replanting forest cover generally &mdash; may be key to addressing malnutrition. A study published in PNAS Nexus by researcher Emilie Vansant and colleagues found that most of the continent&rsquo;s roughly $1 billion in pledged landscape-restoration funding goes toward fast-growing exotic species rather than native ones, even though over 90% of Malawi&rsquo;s population currently cannot afford a healthy diet. Working with 21 civil-society organizations across Malawi, the researchers co-produced an illustrated planting guide for indigenous edible trees such as wild loquat and Mbula plum.</p>
-          <p>A companion discussion, held during an African Forest Forum webinar, underscored both the opportunity and the risk: forest ecosystems rich in indigenous food species &mdash; like the 31 documented tree-food species in Benin&rsquo;s Upper Guinean Forest &mdash; could meaningfully diversify diets, but the traditional ecological knowledge needed to sustain them is eroding as younger generations move away from these practices.</p>
-          <p class="news-src"><b>Sources</b> &nbsp;<a href="https://academic.oup.com/pnasnexus/article/5/6/pgag156/8713054" target="_blank" rel="noopener">PNAS Nexus</a> &middot; <a href="https://phys.org/news/2026-06-african-landscapes-indigenous-food-trees.html" target="_blank" rel="noopener">phys.org</a> &middot; <a href="https://www.eurekalert.org/news-releases/1131870" target="_blank" rel="noopener">EurekAlert</a> &middot; China Daily (June 13, 2026)</p>
-        </article>
-
-        <article class="news-item">
-          <div class="news-meta"><span class="place">Uganda</span> &middot; <span>Educational resource</span></div>
-          <h3 class="news-title">New Video Series Examines Women&rsquo;s Role in Western Uganda&rsquo;s Indigenous Dairy Traditions</h3>
-          <p>Carleton University&rsquo;s Institute of African Studies has released an in-depth video exploring gender-based strategies and Indigenous knowledge systems in dairy-farming households in western Uganda, with particular attention to the roles women play in sustaining these traditions. It&rsquo;s a useful long-form resource for readers interested in the intersection of gender, agriculture, and Indigenous knowledge systems in East Africa.</p>
-          <p class="news-src"><b>Source</b> &nbsp;<a href="https://carleton.ca/africanstudies/cu-videos/" target="_blank" rel="noopener">Carleton University, Institute of African Studies</a></p>
-        </article>
-
-        <article class="news-item">
-          <div class="news-meta"><span class="place">Mexico</span> &middot; <span>2026</span></div>
-          <h3 class="news-title">Mexico City&rsquo;s Indigenous Communities Keep Ancestral Traditions Alive, Even as the City Grows Costlier</h3>
-          <p>Centuries after Spanish colonization, Indigenous communities in and around Mexico City &mdash; built atop the former Aztec capital of Tenochtitlan &mdash; continue to sustain their culture through language workshops, artisan markets, traditional dance, and community festivals. Mexico City&rsquo;s PILARES network, roughly 300 community centers offering free educational and cultural programming, has become a key gathering point for that work.</p>
-          <p>President Claudia Sheinbaum marked the anniversary of Tenochtitlan&rsquo;s founding by describing it not as &ldquo;a dead past&rdquo; but as &ldquo;the living pulse that beats beneath our capital city&rdquo; &mdash; a nod to the continued presence of Indigenous identity in daily life. That cultural resilience persists even as Indigenous families in the city face higher rates of poverty, housing instability, and displacement than the general population.</p>
-          <p class="news-src"><b>Source</b> &nbsp;<a href="https://borgenproject.org/indigenous-families-in-mexico-city-2/" target="_blank" rel="noopener">The Borgen Project &mdash; &ldquo;Staying Connected: Indigenous Families in Mexico City&rdquo;</a></p>
-        </article>
-
-        <article class="news-item">
-          <div class="news-meta"><span class="place">Colombia</span> &middot; <span>May 2026</span></div>
-          <h3 class="news-title">Colombia Hosts First Latin American and Caribbean Indigenous Tourism Summit</h3>
-          <p>Representatives from more than 18 countries gathered in Popay&aacute;n, Colombia this year for the First Latin American and Caribbean Indigenous Tourism Summit, closing with a joint Declaration of Indigenous Tourism that sets shared principles for the region. The summit&rsquo;s organizers framed Indigenous tourism as something broader than an economic sector &mdash; a practice rooted in culture, spirituality, and land stewardship, with Indigenous communities themselves driving decisions about what happens on their territory.</p>
-          <p>&ldquo;This meeting is much more than a summit; it is proof that when peoples unite, they speak with one voice,&rdquo; said Felix Gonzalo Ojeda, general manager of Colombia&rsquo;s National Tourism Fund (Fontur). Colombia has also backed longer-term investments in this space, including an Intercultural Itinerant School of Indigenous Tourism established in 2023 on the Tacueyo reservation.</p>
-          <p class="news-src"><b>Sources</b> &nbsp;<a href="https://colombiaone.com/2026/05/26/colombia-indigenous-tourism/" target="_blank" rel="noopener">ColombiaOne</a> &middot; <a href="https://www.travelandtourworld.com/news/article/colombia-takes-the-lead-in-indigenous-tourism-strengthening-cultural-preservation-and-sustainability-at-the-latin-american-and-caribbean-summit/" target="_blank" rel="noopener">Travel And Tour World</a></p>
-        </article>
-
-        <article class="news-item">
-          <div class="news-meta"><span class="place">United States</span> &middot; <span>June&ndash;July 2026</span></div>
-          <h3 class="news-title">Princeton University Press Reading List Centers Indigenous Voices in America&rsquo;s 250th Anniversary Reflections</h3>
-          <p>As part of a broader series marking the 250th anniversary of the United States, Princeton University Press has published a curated reading list centering Indigenous perspectives on the nation&rsquo;s history &mdash; from encounter and dispossession to reconciliation efforts underway today. Titles include Margaret D. Jacobs&rsquo; <em>After One Hundred Winters</em>, which examines what reconciliation could mean given the country&rsquo;s history of dispossessing Indigenous nations of their land.</p>
-          <p>It&rsquo;s a solid jumping-off point for readers &mdash; Indigenous and non-Indigenous alike &mdash; looking to deepen their understanding of this history, in the U.S. and, by extension, in Canada.</p>
-          <p class="news-src"><b>Source</b> &nbsp;<a href="https://press.princeton.edu/ideas/reflecting-on-americas-250th-anniversary-first-peoples" target="_blank" rel="noopener">Princeton University Press &mdash; &ldquo;Reflecting on America&rsquo;s 250th Anniversary: First Peoples&rdquo;</a></p>
-        </article>
-
-        <article class="news-item">
-          <div class="news-meta"><span class="place">Ontario, Canada</span> &middot; <span>July 2026</span></div>
-          <h3 class="news-title">Wildfires Devastate Namaygoosisagagun First Nation, Raising Questions About Emergency Response in Ontario</h3>
-          <p>A fast-moving wildfire destroyed most of Namaygoosisagagun First Nation (also known as Collins First Nation) in northwestern Ontario in mid-July, forcing its roughly 130 registered members to flee by small boat with only minutes to gather belongings. Chief Helen Paavola has said the community received no advance warning from any government ministry before the fire arrived. Several other communities &mdash; including Whitesand First Nation, Kiashke Zaaging Anishinaabek, and Animbiigoo Zaagi&rsquo;igan Anishinaabek &mdash; have also been placed under mandatory evacuation orders as fires continue to burn across the province.</p>
-          <p>The Assembly of First Nations has passed an emergency resolution calling on the federal government to provide immediate support and commit to rebuilding, while the Chiefs of Ontario and Anishinabek Nation have called for a public inquiry into the province&rsquo;s wildfire response. Indigenous Services Canada has said the reason Namaygoosisagagun did not receive an evacuation warning falls outside its department&rsquo;s scope. Anishinabek Nation is coordinating the community&rsquo;s rebuilding effort.</p>
-          <p class="news-src"><b>Sources</b> &nbsp;<a href="https://www.cbc.ca/news/canada/thunder-bay/namaygoosisagagun-first-nation-wildfire-9.7272350" target="_blank" rel="noopener">CBC News</a> &middot; <a href="https://www.aptnnews.ca/national-news/northern-ontario-fires-prompt-large-scale-evacuations-destroy-homes-in-first-nation/" target="_blank" rel="noopener">APTN National News</a> &middot; <a href="https://ictnews.org/news/northern-first-nation-razed-by-wildfire/" target="_blank" rel="noopener">ICT News</a> &middot; Chiefs of Ontario &middot; America Magazine</p>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- ================= ABOUT THIS ROUNDUP (DISCLAIMER) ================= -->
-    <section style="border-top:1px solid var(--hair);scroll-margin-top:110px">
-      <div class="u-wrap--read roundup-note" style="max-width:860px;padding-top:56px;padding-bottom:84px">
-        <div class="eyebrow" style="margin-bottom:14px">About this roundup</div>
-        <p style="margin:0;font-size:15px;line-height:1.62;color:var(--body-2);max-width:70ch">The news items summarized above are drawn from independent, third-party news outlets, research institutions, and publications, as cited beside each item. Their inclusion here is for informational and awareness purposes only.</p>
-        <ul>
-          <li><strong>No endorsement.</strong> Reference to any company, organization, government body, individual, product, or initiative named in this roundup does not constitute an endorsement, partnership, sponsorship, or affiliation with United Nations Indigenous Peoples Council, nor does it imply that United Nations Indigenous Peoples Council has verified, audited, or vouches for the claims, practices, or conduct of any entity mentioned.</li>
-          <li><strong>No editorial ownership of source content.</strong> All facts, statistics, and direct quotations are attributed to their original publications. United Nations Indigenous Peoples Council did not conduct independent investigation into the underlying stories beyond standard editorial review and is not responsible for the accuracy of third-party reporting.</li>
-          <li><strong>Views are the source&rsquo;s own.</strong> Any opinions, statements, or quotations attributed to individuals or organizations in the cited articles reflect those parties&rsquo; views alone and not the views of United Nations Indigenous Peoples Council.</li>
-          <li><strong>Subject to change.</strong> Facts and circumstances in ongoing or developing stories (e.g., active disputes, investigations, or emergency response situations) may change after publication. Readers should consult the original sources for the most current information.</li>
-          <li><strong>External links.</strong> Links to third-party websites are provided for reference only. United Nations Indigenous Peoples Council does not control and is not responsible for the content, accuracy, or availability of external sites.</li>
-        </ul>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- ================= FOOTER ================= -->
-  <footer class="unipc-footer">
-    <div class="inner">
-      <div class="disc">
-        <div class="disc-label">Disclaimer</div>
-        <p>&ldquo;UNIPC is entirely independent and not controlled or directed by any state, government, the United Nations Organization (whose membership consists solely of Member States), other international organizations, or any other entity.&rdquo;</p>
-      </div>
-      <div class="cols">
-        <div>
-          <div class="brandrow">
-            <svg width="30" height="30" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-              <circle cx="32" cy="32" r="30" stroke="#8A4B23" stroke-width="1.4"/>
-              <line x1="12" y1="44" x2="52" y2="44" stroke="#8A4B23" stroke-width="1.4"/>
-              <circle cx="16" cy="36" r="1.7" fill="#8A4B23"/><circle cx="21.3" cy="32" r="1.7" fill="#8A4B23"/><circle cx="26.6" cy="29.6" r="1.7" fill="#8A4B23"/><circle cx="32" cy="28.8" r="2" fill="#8A4B23"/><circle cx="37.4" cy="29.6" r="1.7" fill="#8A4B23"/><circle cx="42.7" cy="32" r="1.7" fill="#8A4B23"/><circle cx="48" cy="36" r="1.7" fill="#8A4B23"/>
-            </svg>
-            <b>UNIPC</b>
-          </div>
-          <p class="blurb">United Nations Indigenous Peoples Council — an organization of Indigenous nations and peoples. Built to load on any connection. No trackers, ever.</p>
-          <p class="site">unipc.info</p>
-        </div>
-        <div>
-          <div class="coltitle">Four paths</div>
-          <ul>
-            <li><a href="nations.html">Nations &amp; Peoples</a></li>
-            <li><a href="states.html">States &amp; Ministries</a></li>
-            <li><a href="organizations.html">Organizations &amp; Civil Society</a></li>
-            <li><a href="allies.html">Allies &amp; Funders</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="coltitle">The institution</div>
-          <ul>
-            <li><a href="about.html">About &amp; founding</a></li>
-            <li><a href="achieved.html">What we achieved</a></li>
-            <li><a href="recognition.html">Path to recognition</a></li>
-            <li><a href="membership.html">Membership</a></li>
-            <li><a href="status.html">Current status</a></li>
-          </ul>
-        </div>
-        <div>
-          <div class="coltitle">Engage</div>
-          <ul>
-            <li><a href="support.html">Support the Recognition</a></li>
-            <li><a href="donate.html">How to donate</a></li>
-            <li><a href="newsroom.html">Newsroom</a></li>
-            <li><a href="contact.html">Contact &amp; briefings</a></li>
-            <li><a href="emblem.html">The emblem</a></li>
-            <li><a href="media.html">Media &amp; brand use</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="bottom">
-        <div class="legal">© UNIPC · An organization of Indigenous nations and peoples · unipc.info · every claim on this site is checked against our current status before publication.</div>
-        <div class="signoff">Precision made powerful.</div>
-      </div>
-    </div>
-  </footer>
-
-</div>
-<script src="assets/unipc.js?v=3" defer></script>
+<script>
+(function(){
+  var io = new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},{threshold:.1});
+  document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
+})();
+(function(){
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll("nav a[href^='#']"));
+  var sections = navLinks.map(function(a){ return document.querySelector(a.getAttribute("href")); }).filter(Boolean);
+  function setActive(id){
+    navLinks.forEach(function(a){
+      a.classList.toggle("active", a.getAttribute("href") === "#" + id);
+    });
+  }
+  var spy = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){ setActive(entry.target.id); }
+    });
+  }, { rootMargin: "-72px 0px -70% 0px", threshold: 0 });
+  sections.forEach(function(s){ spy.observe(s); });
+})();
+</script>
 </body>
 </html>
