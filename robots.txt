@@ -1,6 +1,4 @@
-# Draft site — not for indexing yet. Pages also carry noindex,nofollow.
-# At launch: remove the Disallow line below to allow crawling.
 User-agent: *
-Disallow: /
+Allow: /
 
 Sitemap: https://unipc.info/sitemap.xml

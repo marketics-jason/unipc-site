@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Production domain assumed to be unipc.info (referenced site-wide). Update the
-     <loc> host here and the Sitemap: line in robots.txt if the final domain differs. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://unipc.info/</loc><lastmod>2026-07-25</lastmod></url>
-  <url><loc>https://unipc.info/nations.html</loc><lastmod>2026-07-25</lastmod></url>
-  <url><loc>https://unipc.info/states.html</loc><lastmod>2026-07-25</lastmod></url>
-  <url><loc>https://unipc.info/organizations.html</loc><lastmod>2026-07-25</lastmod></url>
-  <url><loc>https://unipc.info/allies.html</loc><lastmod>2026-07-25</lastmod></url>
-  <url><loc>https://unipc.info/support.html</loc><lastmod>2026-07-25</lastmod></url>
-  <url><loc>https://unipc.info/donate.html</loc><lastmod>2026-07-25</lastmod></url>
-  <url><loc>https://unipc.info/about.html</loc><lastmod>2026-07-25</lastmod></url>
-  <url><loc>https://unipc.info/achieved.html</loc><lastmod>2026-07-25</lastmod></url>
-  <url><loc>https://unipc.info/recognition.html</loc><lastmod>2026-07-25</lastmod></url>
-  <url><loc>https://unipc.info/membership.html</loc><lastmod>2026-07-25</lastmod></url>
-  <url><loc>https://unipc.info/newsroom.html</loc><lastmod>2026-07-25</lastmod></url>
-  <url><loc>https://unipc.info/contact.html</loc><lastmod>2026-07-25</lastmod></url>
-  <url><loc>https://unipc.info/status.html</loc><lastmod>2026-07-25</lastmod></url>
-  <url><loc>https://unipc.info/emblem.html</loc><lastmod>2026-07-25</lastmod></url>
-  <url><loc>https://unipc.info/media.html</loc><lastmod>2026-07-25</lastmod></url>
+  <url><loc>https://unipc.info/index.html</loc></url>
+  <url><loc>https://unipc.info/nations.html</loc></url>
+  <url><loc>https://unipc.info/states.html</loc></url>
+  <url><loc>https://unipc.info/organizations.html</loc></url>
+  <url><loc>https://unipc.info/allies.html</loc></url>
+  <url><loc>https://unipc.info/support.html</loc></url>
+  <url><loc>https://unipc.info/donate.html</loc></url>
+  <url><loc>https://unipc.info/about.html</loc></url>
+  <url><loc>https://unipc.info/achieved.html</loc></url>
+  <url><loc>https://unipc.info/recognition.html</loc></url>
+  <url><loc>https://unipc.info/membership.html</loc></url>
+  <url><loc>https://unipc.info/newsroom.html</loc></url>
+  <url><loc>https://unipc.info/contact.html</loc></url>
+  <url><loc>https://unipc.info/status.html</loc></url>
+  <url><loc>https://unipc.info/emblem.html</loc></url>
+  <url><loc>https://unipc.info/media.html</loc></url>
 </urlset>
