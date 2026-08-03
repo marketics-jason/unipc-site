@@ -206,7 +206,7 @@ footer a{color:var(--jade-text)}
       <li>In time, acceptance of member documentation — ministry by ministry, each instrument on its own review.</li>
       <li>No State-borne financial obligations.</li>
     </ol>
-    <a class="cta reveal" style="background:var(--ochre)" href="contact.html">Receive the briefing for states →</a>
+    <a class="cta reveal" style="background:var(--ochre)" href="contact.html?dept=irp@unipc.info">Receive the briefing for states →</a>
   </div>
 </div>
 </main>
@@ -265,7 +265,7 @@ footer a{color:var(--jade-text)}
         if(!res.ok) throw new Error("send failed");
         return res.json().catch(function(){ return {}; });
       }).then(function(){
-        statusEl.textContent = "Sent. Thank you — we've received this.";
+        statusEl.textContent = "Thank you for your message. Every request matters — the appropriate department received your contact request and will respond within the next 48 business hours.";
         statusEl.className = "status ok";
         form.reset();
       }).catch(function(){
@@ -279,6 +279,27 @@ footer a{color:var(--jade-text)}
   }
   handleForm(document.getElementById("contact-form"));
   handleForm(document.getElementById("media-form"));
+
+  // Pre-fill department (and optionally a starter message) from a link like
+  // contact.html?dept=otc@unipc.info&msg=Hello...
+  var cf = document.getElementById("contact-form");
+  if (cf) {
+    var params = new URLSearchParams(window.location.search);
+    var dept = params.get("dept");
+    var msg = params.get("msg");
+    if (dept) {
+      var select = document.getElementById("cf-dept");
+      if (select) {
+        for (var i = 0; i < select.options.length; i++) {
+          if (select.options[i].value === dept) { select.value = dept; break; }
+        }
+      }
+    }
+    if (msg) {
+      var msgField = document.getElementById("cf-message");
+      if (msgField) msgField.value = msg;
+    }
+  }
 })();
 </script>
 </body>

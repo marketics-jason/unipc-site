@@ -202,7 +202,7 @@ footer a{color:var(--jade-text)}
 
     <p class="reveal" style="margin-top:16px">Prefer a conversation first? Our philanthropy team is available for a one-on-one discussion to find the right fit for your giving.</p>
 
-    <a class="cta reveal" href="mailto:otc@unipc.info">Request Donation Details →</a>
+    <a class="cta reveal" href="contact.html?dept=otc@unipc.info&amp;msg=Hello%2C%20I%27d%20like%20more%20information%20about%20UNIPC%27s%20in-kind%20sponsorship%20model%20for%20giving.%20Please%20share%20the%20relevant%20details.">Request Donation Details →</a>
   </div>
 </section>
 </main>
@@ -261,7 +261,7 @@ footer a{color:var(--jade-text)}
         if(!res.ok) throw new Error("send failed");
         return res.json().catch(function(){ return {}; });
       }).then(function(){
-        statusEl.textContent = "Sent. Thank you — we've received this.";
+        statusEl.textContent = "Thank you for your message. Every request matters — the appropriate department received your contact request and will respond within the next 48 business hours.";
         statusEl.className = "status ok";
         form.reset();
       }).catch(function(){
@@ -275,6 +275,27 @@ footer a{color:var(--jade-text)}
   }
   handleForm(document.getElementById("contact-form"));
   handleForm(document.getElementById("media-form"));
+
+  // Pre-fill department (and optionally a starter message) from a link like
+  // contact.html?dept=otc@unipc.info&msg=Hello...
+  var cf = document.getElementById("contact-form");
+  if (cf) {
+    var params = new URLSearchParams(window.location.search);
+    var dept = params.get("dept");
+    var msg = params.get("msg");
+    if (dept) {
+      var select = document.getElementById("cf-dept");
+      if (select) {
+        for (var i = 0; i < select.options.length; i++) {
+          if (select.options[i].value === dept) { select.value = dept; break; }
+        }
+      }
+    }
+    if (msg) {
+      var msgField = document.getElementById("cf-message");
+      if (msgField) msgField.value = msg;
+    }
+  }
 })();
 </script>
 </body>

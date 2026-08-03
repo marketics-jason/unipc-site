@@ -215,7 +215,7 @@ footer a{color:var(--jade-text)}
   <h3 class="reveal" style="margin-top:36px;color:#2E3A38;font-size:19px">Press &amp; media enquiries</h3>
   <p class="reveal" style="margin-top:10px">Write to the Office of Legal Affairs.</p>
   <p class="reveal" style="margin-top:8px;font-size:15px;color:var(--muted)">We reply when there is something true to say — and always to correct the record where the institution is misdescribed.</p>
-  <a class="cta reveal" href="mailto:ola@unipc.info">ola@unipc.info →</a>
+  <a class="cta reveal" href="contact.html?dept=jcac@unipc.info">Write to Justice &amp; Constitutional Affairs →</a>
 </div></section>
 </main>
 
@@ -273,7 +273,7 @@ footer a{color:var(--jade-text)}
         if(!res.ok) throw new Error("send failed");
         return res.json().catch(function(){ return {}; });
       }).then(function(){
-        statusEl.textContent = "Sent. Thank you — we've received this.";
+        statusEl.textContent = "Thank you for your message. Every request matters — the appropriate department received your contact request and will respond within the next 48 business hours.";
         statusEl.className = "status ok";
         form.reset();
       }).catch(function(){
@@ -287,6 +287,27 @@ footer a{color:var(--jade-text)}
   }
   handleForm(document.getElementById("contact-form"));
   handleForm(document.getElementById("media-form"));
+
+  // Pre-fill department (and optionally a starter message) from a link like
+  // contact.html?dept=otc@unipc.info&msg=Hello...
+  var cf = document.getElementById("contact-form");
+  if (cf) {
+    var params = new URLSearchParams(window.location.search);
+    var dept = params.get("dept");
+    var msg = params.get("msg");
+    if (dept) {
+      var select = document.getElementById("cf-dept");
+      if (select) {
+        for (var i = 0; i < select.options.length; i++) {
+          if (select.options[i].value === dept) { select.value = dept; break; }
+        }
+      }
+    }
+    if (msg) {
+      var msgField = document.getElementById("cf-message");
+      if (msgField) msgField.value = msg;
+    }
+  }
 })();
 </script>
 </body>
