@@ -125,6 +125,39 @@ async function handleMediaSubmission(request, env) {
   return json({ ok: true });
 }
 
+async function handleFeedback(request, env) {
+  let body;
+  try {
+    body = await request.json();
+  } catch (e) {
+    return json({ error: "Invalid submission." }, 400);
+  }
+
+  const { name, email, category, feedback } = body;
+
+  if (!category || !feedback) return json({ error: "Missing required fields." }, 400);
+  if (email && !EMAIL_RE.test(email)) return json({ error: "Invalid email." }, 400);
+
+  const html = `
+    <h2>New feedback submission — UNIPC website</h2>
+    <p><b>From:</b> ${escapeHtml(name) || "Not provided"} ${email ? `&lt;${escapeHtml(email)}&gt;` : "(no email provided)"}</p>
+    <p><b>Category:</b> ${escapeHtml(category)}</p>
+    <hr>
+    <p style="white-space:pre-wrap">${escapeHtml(feedback)}</p>
+  `;
+
+  const res = await sendViaResend(env, {
+    from: "UNIPC Website <forms@unipc.info>",
+    to: ["secretariat@unipc.info"],
+    reply_to: email || undefined,
+    subject: `[Website] New feedback — ${category}`,
+    html,
+  });
+
+  if (!res.ok) return json({ error: "Send failed", detail: await res.text() }, 502);
+  return json({ ok: true });
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -134,6 +167,9 @@ export default {
     }
     if (request.method === "POST" && url.pathname === "/api/media-submission") {
       return handleMediaSubmission(request, env);
+    }
+    if (request.method === "POST" && url.pathname === "/api/feedback") {
+      return handleFeedback(request, env);
     }
 
     // Everything else — every .html page, CSS, images, sitemap, robots.txt —
