@@ -40,6 +40,16 @@ nav a{font-family:"Noto Sans",sans-serif;font-size:13px;letter-spacing:.04em;col
 nav a:hover,nav a:focus-visible{opacity:1;color:var(--clay)}
 nav a.active{opacity:1;color:var(--clay);border-bottom:2px solid var(--clay);padding-bottom:2px}
 nav .brand{font-family:"Noto Serif",serif;color:var(--clay);font-size:16px;margin-right:8px;flex-shrink:0}
+/* nav dropdown groups */
+nav .nav-group{position:relative;flex-shrink:0}
+nav .nav-group .trigger{font-family:"Noto Sans",sans-serif;font-size:13px;letter-spacing:.04em;color:var(--slate);opacity:.75;background:none;border:none;cursor:pointer;padding:0}
+nav .nav-group .trigger:hover,nav .nav-group .trigger:focus-visible{opacity:1;color:var(--clay)}
+nav .nav-group.active .trigger{opacity:1;color:var(--clay);border-bottom:2px solid var(--clay);padding-bottom:2px}
+nav .nav-dropdown{position:absolute;top:100%;left:0;margin-top:12px;background:var(--card);border:1px solid var(--hair);border-radius:10px;box-shadow:0 10px 28px rgba(0,0,0,.1);min-width:220px;padding:8px;display:none;z-index:60;white-space:normal}
+nav .nav-group.open .nav-dropdown{display:block}
+@media(hover:hover){nav .nav-group:hover .nav-dropdown{display:block}}
+nav .nav-dropdown a{display:block;padding:9px 12px;border-radius:6px;font-size:13.5px;opacity:1;color:var(--slate)}
+nav .nav-dropdown a:hover{background:var(--warm);color:var(--clay)}
 
 /* hero */
 .hero{min-height:82svh;display:grid;place-items:center;text-align:center;padding:60px 26px 50px}
@@ -102,6 +112,24 @@ nav .brand{font-family:"Noto Serif",serif;color:var(--clay);font-size:16px;margi
 .u-form .status{margin-top:14px;font-size:14.5px;display:none}
 .u-form .status.ok{color:var(--jade-text);display:block}
 .u-form .status.err{color:#B4472A;display:block}
+/* footer newsletter subscribe */
+footer .footer-subscribe{margin:0 0 26px;padding-bottom:22px;border-bottom:1px solid rgba(233,237,233,.18)}
+footer .footer-subscribe label{display:block;font-family:"Noto Sans",sans-serif;font-size:13px;color:#C9D2CE;margin-bottom:10px}
+footer .footer-subscribe .row{display:flex;gap:10px;max-width:420px;flex-wrap:wrap}
+footer .footer-subscribe input{flex:1 1 220px;border:1px solid rgba(233,237,233,.3);border-radius:8px;background:rgba(255,255,255,.06);color:#E9EDE9;font-family:"Noto Sans",sans-serif;font-size:14px;padding:10px 12px;box-sizing:border-box}
+footer .footer-subscribe input::placeholder{color:rgba(233,237,233,.5)}
+footer .footer-subscribe button{background:var(--ochre-on-dark);color:#2E2114;border:none;border-radius:8px;padding:10px 18px;font-family:"Noto Sans",sans-serif;font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap}
+footer .footer-subscribe button:hover{opacity:.9}
+footer .footer-subscribe .status{margin-top:10px;font-size:13.5px}
+footer .footer-subscribe .status.ok{color:var(--ochre-on-dark);display:block}
+footer .footer-subscribe .status.err{color:#E39B7F;display:block}
+/* contact page nav cards */
+.contact-nav{display:flex;gap:12px;overflow-x:auto;margin:26px 0 40px;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity}
+.contact-nav a{flex:0 0 auto;width:42%;min-width:130px;max-width:190px;padding:16px 16px;border:1px solid var(--hair);border-radius:12px;background:var(--card);text-decoration:none;scroll-snap-align:start;transition:background .15s,border-color .15s}
+.contact-nav a:hover,.contact-nav a:focus{background:var(--warm);border-color:var(--jade-text)}
+.contact-nav a h3{margin:0 0 6px;font-family:"Noto Serif",serif;font-weight:400;font-size:16.5px;color:var(--clay);line-height:1.25}
+.contact-nav a p{margin:0;font-size:13px;color:var(--muted);font-family:"Noto Sans",sans-serif;line-height:1.4}
+@media(min-width:640px){.contact-nav a{width:31%;max-width:none}}
 .callout b{color:var(--clay)}
 .callout.jade{border-color:var(--jade);background:#F4F8F6}
 .callout.jade b{color:var(--jade-text)}
@@ -173,16 +201,32 @@ footer a{color:var(--jade-text)}
   <div class="wrap">
     <span class="brand">UNIPC</span>
     <a href="index.html">Home</a>
-    <a href="nations.html">Nations &amp; Peoples</a>
-    <a href="states.html">States &amp; Ministries</a>
-    <a href="organizations.html">Organizations &amp; Civil Society</a>
-    <a href="allies.html">Allies &amp; Funders</a>
-    <a href="support.html">Support</a>
-    <a href="donate.html">Donate</a>
-    <a href="about.html">About</a>
-    <a href="achieved.html">What We Achieved</a>
-    <a href="recognition.html" class="active">Path to Recognition</a>
-    <a href="membership.html">Membership</a>
+    <div class="nav-group">
+      <button type="button" class="trigger">Who are you ▾</button>
+      <div class="nav-dropdown">
+      <a href="nations.html">Nations &amp; Peoples</a>
+      <a href="states.html">States &amp; Ministries</a>
+      <a href="organizations.html">Organizations &amp; Civil Society</a>
+      <a href="allies.html">Allies &amp; Funders</a>
+      </div>
+    </div>
+    <div class="nav-group active">
+      <button type="button" class="trigger">About ▾</button>
+      <div class="nav-dropdown">
+      <a href="about.html">About &amp; Founding</a>
+      <a href="achieved.html">What We Achieved</a>
+      <a href="recognition.html">Path to Recognition</a>
+      <a href="membership.html">Membership</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <button type="button" class="trigger">Engage ▾</button>
+      <div class="nav-dropdown">
+      <a href="contact.html?dept=volunteer@unipc.info">Volunteering</a>
+      <a href="support.html">In-Kind Support</a>
+      <a href="donate.html">Donate</a>
+      </div>
+    </div>
     <a href="newsroom.html">Newsroom</a>
     <a href="contact.html">Contact</a>
   </div>
@@ -209,7 +253,7 @@ footer a{color:var(--jade-text)}
       </div>
       <div class="step reveal">
         <div class="n">4</div>
-        <div><h4>Seat</h4><p>A headquarters agreement with a host state: legal personality, protected archives, the address diplomacy requires.</p></div>
+        <div><h4>Seat</h4><p>A headquarters agreement with a host state: legal personality, protected archives, the address diplomacy requires. Since UNIPC's 2020 General Assembly, Switzerland has been identified as a candidate location for a future headquarters agreement.</p></div>
       </div>
       <div class="step reveal">
         <div class="n">5</div>
@@ -224,6 +268,14 @@ footer a{color:var(--jade-text)}
 <footer>
   <div class="wrap">
     <p class="fin">Precision made powerful.</p>
+    <form class="footer-subscribe" id="subscribe-form" data-endpoint="/api/subscribe" data-success="Subscribed. Thank you.">
+      <label for="sub-email">Stay informed — no spam, no trackers, unsubscribe anytime.</label>
+      <div class="row">
+        <input id="sub-email" name="email" type="email" placeholder="you@example.com" required>
+        <button type="submit">Subscribe</button>
+      </div>
+      <p class="status" role="status"></p>
+    </form>
     <p style="margin-bottom:10px;font-size:13px">
       <a href="status.html" style="color:var(--jade-text);margin-right:14px">Status</a><a href="emblem.html" style="color:var(--jade-text);margin-right:14px">Emblem</a><a href="media.html" style="color:var(--jade-text)">Media &amp; Brand Use</a>
     </p>
@@ -275,7 +327,7 @@ footer a{color:var(--jade-text)}
         if(!res.ok) throw new Error("send failed");
         return res.json().catch(function(){ return {}; });
       }).then(function(){
-        statusEl.textContent = "Sent. Thank you — we've received this.";
+        statusEl.textContent = form.getAttribute("data-success") || "Thank you — we've received this.";
         statusEl.className = "status ok";
         form.reset();
       }).catch(function(){
@@ -288,7 +340,92 @@ footer a{color:var(--jade-text)}
     });
   }
   handleForm(document.getElementById("contact-form"));
-  handleForm(document.getElementById("media-form"));
+  handleForm(document.getElementById("media-form-el"));
+  handleForm(document.getElementById("feedback-form-el"));
+  handleForm(document.getElementById("subscribe-form"));
+
+  // Nav dropdown groups — tap/click to open (works on touch and mouse alike).
+  // Hover-to-open on top of this is handled purely in CSS for pointer devices.
+  var openGroup = null;
+  document.querySelectorAll("nav .nav-group .trigger").forEach(function(trigger){
+    trigger.addEventListener("click", function(ev){
+      ev.stopPropagation();
+      var group = trigger.closest(".nav-group");
+      var wasOpen = group.classList.contains("open");
+      document.querySelectorAll("nav .nav-group.open").forEach(function(g){ g.classList.remove("open"); });
+      if (!wasOpen) { group.classList.add("open"); openGroup = group; }
+      else { openGroup = null; }
+    });
+  });
+  document.addEventListener("click", function(){
+    document.querySelectorAll("nav .nav-group.open").forEach(function(g){ g.classList.remove("open"); });
+  });
+
+  // Pre-fill department (and optionally a starter message) from a link like
+  // contact.html?dept=otc@unipc.info&msg=Hello...
+  var cf = document.getElementById("contact-form");
+  if (cf) {
+    var SUBJECTS_BY_DEPT = {
+      "eosg@unipc.info": ["General inquiry", "Diplomatic correspondence", "Meeting request", "Other"],
+      "secretariat@unipc.info": ["General inquiry", "Document request", "Other"],
+      "jcac@unipc.info": ["Legal opinion request", "Constitutional interpretation", "Treaty Registrar matter", "Correcting a misrepresentation of UNIPC", "Other"],
+      "treaties@unipc.info": ["Treaty text request", "Treaty signing logistics", "Treaty status inquiry", "Other"],
+      "irp@unipc.info": ["Charter", "Treaty", "Letter of acceptance to travel for treaty signing", "Other document request", "General inquiry"],
+      "otc@unipc.info": ["In-kind sponsorship inquiry", "Partnership proposal", "Financial/governance briefing request", "Donation information", "Other"],
+      "oac@unipc.info": ["Administrative inquiry", "Vendor/procurement inquiry", "Other"],
+      "osc@unipc.info": ["Security concern", "Credential/identity inquiry", "Other"],
+      "membership@unipc.info": ["Membership application", "Membership status inquiry", "Voting rights question", "General inquiry"],
+      "social@unipc.info": ["Press/media inquiry", "Interview request", "Social media inquiry", "Other"]
+    };
+
+    function populateSubjects(deptValue, preselect){
+      var subjSelect = document.getElementById("cf-subject");
+      if (!subjSelect) return;
+      var options = SUBJECTS_BY_DEPT[deptValue];
+      subjSelect.innerHTML = "";
+      if (!options) {
+        subjSelect.disabled = true;
+        var placeholder = document.createElement("option");
+        placeholder.value = ""; placeholder.selected = true;
+        placeholder.textContent = "Choose a department first…";
+        subjSelect.appendChild(placeholder);
+        return;
+      }
+      subjSelect.disabled = false;
+      var blank = document.createElement("option");
+      blank.value = ""; blank.disabled = true; blank.selected = !preselect;
+      blank.textContent = "Choose one…";
+      subjSelect.appendChild(blank);
+      options.forEach(function(opt){
+        var o = document.createElement("option");
+        o.value = opt; o.textContent = opt;
+        if (preselect && opt === preselect) o.selected = true;
+        subjSelect.appendChild(o);
+      });
+    }
+
+    var deptSelect = document.getElementById("cf-dept");
+    if (deptSelect) {
+      deptSelect.addEventListener("change", function(){ populateSubjects(deptSelect.value); });
+    }
+
+    var params = new URLSearchParams(window.location.search);
+    var dept = params.get("dept");
+    var msg = params.get("msg");
+    if (dept) {
+      var select = document.getElementById("cf-dept");
+      if (select) {
+        for (var i = 0; i < select.options.length; i++) {
+          if (select.options[i].value === dept) { select.value = dept; break; }
+        }
+      }
+      populateSubjects(dept);
+    }
+    if (msg) {
+      var msgField = document.getElementById("cf-message");
+      if (msgField) msgField.value = msg;
+    }
+  }
 })();
 </script>
 </body>

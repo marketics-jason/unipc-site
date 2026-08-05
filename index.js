@@ -57,15 +57,16 @@ async function handleContact(request, env) {
     return json({ error: "Invalid submission." }, 400);
   }
 
-  const { department, first_name, family_name, email, phone, indigenous_nation, state, message } = body;
+  const { department, subject, first_name, family_name, email, phone, indigenous_nation, state, message } = body;
 
   if (!ALLOWED_DEPARTMENTS.has(department)) return json({ error: "Unknown department." }, 400);
-  if (!first_name || !family_name || !email || !message) return json({ error: "Missing required fields." }, 400);
+  if (!first_name || !family_name || !email || !message || !subject) return json({ error: "Missing required fields." }, 400);
   if (!EMAIL_RE.test(email)) return json({ error: "Invalid email." }, 400);
 
   const html = `
     <h2>New contact form submission — UNIPC website</h2>
     <p><b>Routed to:</b> ${escapeHtml(department)}</p>
+    <p><b>Subject:</b> ${escapeHtml(subject)}</p>
     <p><b>From:</b> ${escapeHtml(first_name)} ${escapeHtml(family_name)} &lt;${escapeHtml(email)}&gt;</p>
     <p><b>Telephone:</b> ${escapeHtml(phone) || "—"}</p>
     <p><b>Indigenous Nation:</b> ${escapeHtml(indigenous_nation) || "—"}</p>
@@ -78,7 +79,7 @@ async function handleContact(request, env) {
     from: "UNIPC Website <forms@unipc.info>",
     to: [department],
     reply_to: email,
-    subject: `[Website] New enquiry for ${department.split("@")[0]}`,
+    subject: `[Website] ${subject} — ${department.split("@")[0]}`,
     html,
   });
 
@@ -158,6 +159,38 @@ async function handleFeedback(request, env) {
   return json({ ok: true });
 }
 
+async function handleSubscribe(request, env) {
+  let body;
+  try {
+    body = await request.json();
+  } catch (e) {
+    return json({ error: "Invalid submission." }, 400);
+  }
+
+  const { email } = body;
+  if (!email || !EMAIL_RE.test(email)) return json({ error: "Invalid email." }, 400);
+
+  const res = await fetch("https://api.resend.com/contacts", {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${env.RESEND_API_KEY}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email, unsubscribed: false }),
+  });
+
+  // Resend returns an error if the contact already exists — treat that as success,
+  // not a failure, since the visitor's intent (being subscribed) is already satisfied.
+  if (!res.ok) {
+    const detail = await res.text();
+    if (!detail.includes("already exists") && !detail.includes("duplicate")) {
+      return json({ error: "Subscribe failed", detail }, 502);
+    }
+  }
+
+  return json({ ok: true });
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -170,6 +203,9 @@ export default {
     }
     if (request.method === "POST" && url.pathname === "/api/feedback") {
       return handleFeedback(request, env);
+    }
+    if (request.method === "POST" && url.pathname === "/api/subscribe") {
+      return handleSubscribe(request, env);
     }
 
     // Everything else — every .html page, CSS, images, sitemap, robots.txt —
