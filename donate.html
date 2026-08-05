@@ -45,7 +45,8 @@ nav .nav-group{position:relative;flex-shrink:0}
 nav .nav-group .trigger{font-family:"Noto Sans",sans-serif;font-size:13px;letter-spacing:.04em;color:var(--slate);opacity:.75;background:none;border:none;cursor:pointer;padding:0}
 nav .nav-group .trigger:hover,nav .nav-group .trigger:focus-visible{opacity:1;color:var(--clay)}
 nav .nav-group.active .trigger{opacity:1;color:var(--clay);border-bottom:2px solid var(--clay);padding-bottom:2px}
-nav .nav-dropdown{position:absolute;top:100%;left:0;margin-top:12px;background:var(--paper);border:1px solid var(--hair);border-radius:10px;box-shadow:0 10px 28px rgba(0,0,0,.1);min-width:220px;padding:8px;display:none;z-index:60;white-space:normal}
+nav .nav-dropdown{position:absolute;top:100%;left:0;padding-top:12px;background:transparent;display:none;z-index:60;white-space:normal}
+nav .nav-dropdown-inner{background:var(--paper);border:1px solid var(--hair);border-radius:10px;box-shadow:0 10px 28px rgba(0,0,0,.1);min-width:220px;padding:8px}
 nav .nav-group.open .nav-dropdown{display:block}
 @media(hover:hover){nav .nav-group:hover .nav-dropdown{display:block}}
 nav .nav-dropdown a{display:block;padding:9px 12px;border-radius:6px;font-size:13.5px;opacity:1;color:var(--slate)}
@@ -204,27 +205,33 @@ footer a{color:var(--jade-text)}
     <div class="nav-group">
       <button type="button" class="trigger">Who are you ▾</button>
       <div class="nav-dropdown">
-      <a href="nations.html">Nations &amp; Peoples</a>
+        <div class="nav-dropdown-inner">
+        <a href="nations.html">Nations &amp; Peoples</a>
       <a href="states.html">States &amp; Ministries</a>
       <a href="organizations.html">Organizations &amp; Civil Society</a>
       <a href="allies.html">Allies &amp; Funders</a>
+        </div>
       </div>
     </div>
     <div class="nav-group">
       <button type="button" class="trigger">About ▾</button>
       <div class="nav-dropdown">
-      <a href="about.html">About &amp; Founding</a>
+        <div class="nav-dropdown-inner">
+        <a href="about.html">About &amp; Founding</a>
       <a href="achieved.html">What We Achieved</a>
       <a href="recognition.html">Path to Recognition</a>
       <a href="membership.html">Membership</a>
+        </div>
       </div>
     </div>
     <div class="nav-group active">
       <button type="button" class="trigger">Engage ▾</button>
       <div class="nav-dropdown">
-      <a href="contact.html?dept=volunteer@unipc.info">Volunteering</a>
+        <div class="nav-dropdown-inner">
+        <a href="contact.html?dept=volunteer@unipc.info">Volunteering</a>
       <a href="support.html">In-Kind Support</a>
       <a href="donate.html">Donate</a>
+        </div>
       </div>
     </div>
     <a href="newsroom.html">Newsroom</a>
